@@ -1,0 +1,30 @@
+/* Fundo da barra lateral */
+.sidebar {
+    -fx-background-color: #252525; /* Um cinza um pouco mais claro que o fundo */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+/* Botões do Menu */
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cccccc;
+    -fx-font-family: "Poppins";
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
+/* Botão de Sair (Vermelhinho discreto) */
+.nav-btn-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ef5350;
+    -fx-font-family: "Poppins";
+}
+.nav-btn-danger:hover {
+    -fx-background-color: rgba(239, 83, 80, 0.1);
+}

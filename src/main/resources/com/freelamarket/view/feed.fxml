@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.freelamarket.controller.FeedController"
+      spacing="20" style="-fx-background-color: transparent;">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <Label text="Projetos Recentes" styleClass="titulo-h1" style="-fx-text-fill: white;"/>
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+        <content>
+            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" style="-fx-background-color: transparent;"/>
+        </content>
+    </ScrollPane>
+</VBox>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.freelamarket.controller.ProjectCreateController"
+      spacing="15" style="-fx-background-color: transparent; -fx-padding: 20;">
+
+    <Label text="Novo Projeto" styleClass="titulo-h1" style="-fx-text-fill: white;"/>
+
+    <VBox spacing="5">
+        <Label text="Título do Projeto" styleClass="label"/>
+        <TextField fx:id="titleField" promptText="Ex: Site Institucional em React" styleClass="text-field"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Descrição Detalhada" styleClass="label"/>
+        <TextArea fx:id="descField" promptText="Descreva o que você precisa..." prefRowCount="5" wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Orçamento (R$)" styleClass="label"/>
+        <TextField fx:id="budgetField" promptText="Ex: 1500.00"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Prazo Limite" styleClass="label"/>
+        <DatePicker fx:id="deadlinePicker" promptText="Selecione a data"/>
+    </VBox>
+
+    <Label fx:id="msgLabel" text="" styleClass="text-danger"/>
+
+    <Button text="🚀 Publicar Projeto" onAction="#handlePublish" styleClass="btn-primary" maxWidth="200"/>
+
+</VBox>

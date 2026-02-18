@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane fx:id="mainLayout" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.freelamarket.controller.HomeController"
+            stylesheets="@../css/home.css">
+
+    <left>
+        <VBox spacing="15" styleClass="sidebar">
+            <padding>
+                <Insets top="30" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="FreelaMarket" styleClass="titulo-h2" />
+
+            <Label text=" " />
+
+            <Button text="🏠  Mural de Projetos" onAction="#mostrarFeed" styleClass="nav-btn" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+
+            <Button fx:id="btnPublicar" text="➕  Publicar Projeto" onAction="#create" styleClass="nav-btn" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+
+            <Button fx:id="btnMeusProjetos" text="📂  Meus Projetos" onAction="#mostrarMeusProjetos" styleClass="nav-btn" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+
+            <Button text="👤  Meu Perfil" onAction="#mostrarPerfil" styleClass="nav-btn" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+
+            <VBox VBox.vgrow="ALWAYS" />
+
+            <Button text="🚪 Sair" onAction="#handleLogout" styleClass="nav-btn-danger" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #1e1e1e; -fx-padding: 30;">
+            <Label text="Bem-vindo ao FreelaMarket!" styleClass="titulo-h1"/>
+        </StackPane>
+    </center>
+
+</BorderPane>

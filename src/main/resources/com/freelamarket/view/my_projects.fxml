@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.freelamarket.controller.MyProjectsController"
+      spacing="20" style="-fx-background-color: #1e1e1e; -fx-padding: 20;">
+
+    <Label text="Meus Projetos" style="-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    <Label text="Gerencie suas vagas publicadas." style="-fx-text-fill: #aaaaaa;"/>
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+        <content>
+            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" style="-fx-background-color: transparent;"/>
+        </content>
+    </ScrollPane>
+</VBox>

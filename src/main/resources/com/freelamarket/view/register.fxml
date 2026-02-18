@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.ComboBox?>
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.freelamarket.controller.RegisterController"
+           prefHeight="720.0" prefWidth="1280.0"
+           styleClass="card-reg">
+
+    <VBox alignment="CENTER_LEFT" maxWidth="400.0" maxHeight="450.0" spacing="15.0" styleClass="reg-info">
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+        </padding>
+
+        <Label text="Crie sua conta" styleClass="reg-h3"/>
+        <Label text="Preencha os dados para começar." styleClass="text-muted"/>
+
+        <Label text="Nome Completo" styleClass="reg-h5"/>
+        <TextField fx:id="nameField" promptText="Ex: Maria da Silva" styleClass="reg-form-control"/>
+
+        <Label text="E-mail" styleClass="reg-h5"/>
+        <TextField fx:id="emailField" promptText="seu@email.com" styleClass="reg-form-control"/>
+
+        <Label text="Senha" styleClass="reg-h5"/>
+        <PasswordField fx:id="passwordField" promptText="Crie uma senha forte" styleClass="reg-form-control"/>
+
+        <Label text="Confirmar Senha" styleClass="reg-h5"/>
+        <PasswordField fx:id="confirmPasswordField" promptText="Repita a senha" styleClass="reg-form-control"/>
+
+        <Label text="Número de Telefone" styleClass="reg-h5"/>
+        <TextField fx:id="phoneField" promptText="(XX) XXXXX-XXXX" styleClass="reg-form-control"/>
+
+        <Label text="Tipo de Conta: " styleClass="reg-h5"/>
+        <ComboBox fx:id="accountTypeField" maxWidth="Infinity" styleClass="reg-combobox" promptText="Selecione o tipo de conta"/>
+
+        <Label fx:id="msgLabel" text="" styleClass="text-danger" wrapText="true"/>
+        <VBox spacing="10">
+            <Button text="Finalizar Cadastro" onAction="#handleSignup"
+                    maxWidth="Infinity" styleClass="reg-btn, reg-btn-success, reg-btn-lg"/>
+
+            <Button text="Voltar para Login" onAction="#handleBack"
+                    maxWidth="Infinity" styleClass="reg-btn, reg-btn-default"/>
+        </VBox>
+
+    </VBox>
+
+</StackPane>

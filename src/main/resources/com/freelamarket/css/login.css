@@ -1,0 +1,58 @@
+.root {
+    my-background-color: #0D1A14;
+    my-cards-color: #162A21;
+    my-buttons: #3D8B5D;
+    my-primary-text: #E0EADD;
+    my-secondary-text: #8A9B91;
+    my-forms-background-color: #1C3329;
+    my-selected-button: #2E6148;
+
+    -fx-background-color: my-background-color;
+}
+
+.login-info {
+    -fx-background-color: my-cards-color;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-background-radius: 20px;
+}
+
+.login-h1 {
+    -fx-text-fill: my-primary-text;
+}
+
+.login-h5 {
+    -fx-text-fill: my-secondary-text;
+}
+
+.login-form-control {
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+    -fx-background-color: my-forms-background-color;
+    -fx-text-fill: my-secondary-text;
+}
+
+.login-btn {
+    -fx-background-color: my-buttons;
+    -fx-text-fill: my-primary-text;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-padding: 10 25 10 25;
+}
+
+.login-btn:hover {
+    -fx-background-color: my-selected-button;
+    -fx-border-color: transparent;
+    -fx-text-fill: my-secondary-text;
+}
+
+.login-hyperlink {
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: my-buttons;
+}
+
+.login-hyperlink:hover {
+    -fx-underline: false;
+}
