@@ -56,7 +56,7 @@ public class HomeController {
     public void mostrarMeusProjetos() { carregarTela("view/my_projects.fxml"); }
 
     @FXML
-    public void mostrarPerfil() { carregarTela("view/perfil.fxml"); }
+    public void mostrarPerfil() { carregarTela("view/profile.fxml"); }
 
     @FXML
     public void handleLogout() {

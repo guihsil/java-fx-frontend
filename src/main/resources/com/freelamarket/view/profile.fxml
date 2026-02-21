@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: #1e1e1e;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.freelamarket.controller.ProfileController">
+    <VBox spacing="20" style="-fx-background-color: #1e1e1e; -fx-padding: 30;" alignment="TOP_CENTER">
+
+        <Label text="Meu Perfil" style="-fx-font-size: 28px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <VBox maxWidth="500" spacing="15" style="-fx-background-color: #2b2b2b; -fx-padding: 30; -fx-background-radius: 10;">
+
+            <Label text="Dados Pessoais" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <TextField fx:id="nameField" promptText="Nome Completo" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+            <TextField fx:id="emailField" editable="false" promptText="E-mail (Não alterável)" style="-fx-background-color: #222222; -fx-text-fill: #aaaaaa;"/>
+            <TextField fx:id="phoneField" promptText="Telefone" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+
+            <VBox fx:id="clientBox" spacing="10" managed="false" visible="false">
+                <Label text="Dados da Empresa (Cliente)" style="-fx-text-fill: #81c784; -fx-font-weight: bold;"/>
+                <TextField fx:id="companyNameField" promptText="Nome da Empresa" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+                <TextField fx:id="cnpjField" promptText="CNPJ" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+                <TextField fx:id="addressField" promptText="Endereço" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+                <TextArea fx:id="bioClientField" promptText="Bio / Sobre a Empresa" prefRowCount="3" wrapText="true" style="-fx-control-inner-background: #333333; -fx-text-fill: white;"/>
+            </VBox>
+
+            <VBox fx:id="providerBox" spacing="10" managed="false" visible="false">
+                <Label text="Dados Profissionais (Freelancer)" style="-fx-text-fill: #64b5f6; -fx-font-weight: bold;"/>
+                <TextArea fx:id="bioProviderField" promptText="Sua Bio Profissional" prefRowCount="3" wrapText="true" style="-fx-control-inner-background: #333333; -fx-text-fill: white;"/>
+                <TextField fx:id="portfolioField" promptText="URL do Portfólio" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+                <TextField fx:id="hourlyRateField" promptText="Valor Hora (Ex: 50.00)" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+                <TextField fx:id="skillsField" promptText="Habilidades (Ex: Java, React, Figma)" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
+            </VBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="btnEdit" text="✏️ Editar Perfil" onAction="#enableEdit" styleClass="btn, btn-warning"/>
+                <Button fx:id="btnSave" text="💾 Salvar Alterações" onAction="#saveEdit" styleClass="btn, btn-success" visible="false" managed="false"/>
+            </HBox>
+
+            <Label fx:id="msgLabel" text="" style="-fx-text-fill: #ef5350;" wrapText="true"/>
+        </VBox>
+    </VBox>
+</ScrollPane>
