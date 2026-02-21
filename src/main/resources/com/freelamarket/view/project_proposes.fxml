@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" style="-fx-background-color: #1e1e1e; -fx-padding: 20;" prefWidth="450" prefHeight="550" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.freelamarket.controller.ProjectProposeController">
+
+    <Label fx:id="lblTitulo" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Propostas Recebidas" wrapText="true"/>
+    <Label fx:id="lblStatus" style="-fx-text-fill: #aaaaaa;" text="Carregando as propostas..."/>
+
+    <ScrollPane fitToWidth="true" style="-fx-background: #1e1e1e; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+        <content>
+            <VBox fx:id="containerPropostas" spacing="15" style="-fx-background-color: transparent;"/>
+        </content>
+    </ScrollPane>
+
+</VBox>

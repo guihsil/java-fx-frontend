@@ -59,14 +59,14 @@ public class UserService {
         if (root.has("user")) {
             user = mapper.treeToValue(root.get("user"), User.class);
 
-            if (root.has("id")) user.setProfileId(root.get("id").asText());
-            if (root.has("companyName")) user.setCompanyName(root.get("companyName").asText());
-            if (root.has("cnpjNif")) user.setCnpjNif(root.get("cnpjNif").asText());
-            if (root.has("address")) user.setAddress(root.get("address").asText());
-            if (root.has("bio")) user.setBio(root.get("bio").asText());
-            if (root.has("portfolioUrl")) user.setPortfolioUrl(root.get("portfolioUrl").asText());
-            if (root.has("hourlyRate")) user.setHourlyRate(root.get("hourlyRate").asDouble());
-            if (root.has("skills")) user.setSkills(root.get("skills").asText());
+            if (root.hasNonNull("id")) user.setProfileId(root.get("id").asText());
+            if (root.hasNonNull("companyName")) user.setCompanyName(root.get("companyName").asText());
+            if (root.hasNonNull("cnpjNif")) user.setCnpjNif(root.get("cnpjNif").asText());
+            if (root.hasNonNull("address")) user.setAddress(root.get("address").asText());
+            if (root.hasNonNull("bio")) user.setBio(root.get("bio").asText());
+            if (root.hasNonNull("portifolioURL")) user.setPortfolioUrl(root.get("portifolioURL").asText());
+            if (root.hasNonNull("hourlyRate")) user.setHourlyRate(root.get("hourlyRate").asDouble());
+            if (root.hasNonNull("skills")) user.setSkills(root.get("skills").asText());
         } else {
             user = mapper.treeToValue(root, User.class);
         }

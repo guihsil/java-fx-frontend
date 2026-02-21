@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.freelamarket.model.Negotiation;
 import com.freelamarket.model.ProjectDTO;
 import com.freelamarket.model.Proposal;
 import com.freelamarket.util.UserSession;
@@ -104,6 +105,70 @@ public class ProposalService {
             return true;
         } else {
             throw new Exception("Erro ao deletar: " + response.statusCode());
+        }
+    }
+
+    public boolean sendPropose(String projectId, double valor, String mensagem) throws Exception {
+        String token = UserSession.getInstance().getToken();
+
+        // Montando o JSON para enviar ao backend
+        com.fasterxml.jackson.databind.node.ObjectNode jsonNodes = mapper.createObjectNode();
+        jsonNodes.put("proposedValue", valor);
+        jsonNodes.put("message", mensagem);
+
+        String jsonBody = mapper.writeValueAsString(jsonNodes);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/negotiations/" + projectId))
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Status 201 (Created) significa que deu tudo certo!
+        if (response.statusCode() == 201) {
+            return true;
+        } else {
+            throw new Exception("Erro ao enviar proposta. Código: " + response.statusCode() + " | Resposta: " + response.body());
+        }
+    }
+
+    public List<Negotiation> getProposalsForProject(String projectId) throws Exception {
+        String token = UserSession.getInstance().getToken();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/project/" + projectId + "/negotiations"))
+                .header("Authorization", "Bearer " + token)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() == 200) {
+            return mapper.readValue(response.body(), new com.fasterxml.jackson.core.type.TypeReference<>() {});
+        } else {
+            throw new Exception("Erro ao carregar propostas: " + response.body());
+        }
+    }
+
+    public boolean replyPropose(String negotiationId, boolean aceitar) throws Exception {
+        String token = UserSession.getInstance().getToken();
+        String endpoint = aceitar ? "/accept" : "/denied";
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/negotiations/" + negotiationId + endpoint))
+                .header("Authorization", "Bearer " + token)
+                .method("PATCH", HttpRequest.BodyPublishers.noBody())
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() == 204 || response.statusCode() == 200) {
+            return true;
+        } else {
+            throw new Exception("Erro ao responder: " + response.statusCode());
         }
     }
 }

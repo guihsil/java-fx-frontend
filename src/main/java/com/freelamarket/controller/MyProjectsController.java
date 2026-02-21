@@ -1,7 +1,6 @@
 package com.freelamarket.controller;
 
 import com.freelamarket.App;
-import com.freelamarket.Launcher;
 import com.freelamarket.model.Proposal;
 import com.freelamarket.service.ProposalService;
 import com.freelamarket.util.UserSession;
@@ -84,6 +83,11 @@ public class MyProjectsController {
         status.setStyle("-fx-text-fill: #aaaaaa; -fx-font-size: 12px;");
 
         HBox actions = new HBox(10);
+
+        Button btnVerPropostas = new Button("👀 Ver Propostas");
+        btnVerPropostas.getStyleClass().addAll("btn", "btn-sm", "btn-info");
+        btnVerPropostas.setOnAction(e -> openProposes(p));
+
         Button btnEdit = new Button("✏️ Editar");
         btnEdit.getStyleClass().addAll("btn", "btn-sm", "btn-warning");
         btnEdit.setOnAction(e -> handleEdit(p));
@@ -92,8 +96,10 @@ public class MyProjectsController {
         btnDelete.getStyleClass().addAll("btn", "btn-sm", "btn-danger");
         btnDelete.setOnAction(e -> handleDelete(p));
 
-        actions.getChildren().addAll(btnEdit, btnDelete);
+        actions.getChildren().addAll(btnVerPropostas, btnEdit, btnDelete);
+
         card.getChildren().addAll(title, status, actions);
+
         return card;
     }
 
@@ -126,10 +132,32 @@ public class MyProjectsController {
             ProjectCreateController controller = loader.getController();
             controller.setProjectData(p);
 
-            cardContainer.getScene().setRoot(root);
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Editar Projeto");
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.show();
+
+            stage.setOnHidden(e -> loadMyProjects());
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void openProposes(com.freelamarket.model.Proposal p) {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(com.freelamarket.App.class.getResource("view/project_proposes.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            ProjectProposeController controller = loader.getController();
+            controller.setProjetct(p.getId(), p.getTitle());
+
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Gerenciar Propostas");
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }

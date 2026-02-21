@@ -54,10 +54,10 @@ public class ProfileController {
                 clientBox.setVisible(true);
                 clientBox.setManaged(true);
 
-                companyNameField.setText(limparNulo(currentUser.getCompanyName()));
-                cnpjField.setText(limparNulo(currentUser.getCnpjNif()));
-                addressField.setText(limparNulo(currentUser.getAddress()));
-                bioClientField.setText(limparNulo(currentUser.getBio()));
+                companyNameField.setText(clearNull(currentUser.getCompanyName()));
+                cnpjField.setText(clearNull(currentUser.getCnpjNif()));
+                addressField.setText(clearNull(currentUser.getAddress()));
+                bioClientField.setText(clearNull(currentUser.getBio()));
 
                 companyNameField.setText(currentUser.getCompanyName());
                 cnpjField.setText(currentUser.getCnpjNif());
@@ -67,16 +67,14 @@ public class ProfileController {
                 providerBox.setVisible(true);
                 providerBox.setManaged(true);
 
-                bioProviderField.setText(limparNulo(currentUser.getBio()));
-                portfolioField.setText(limparNulo(currentUser.getPortfolioUrl()));
-                skillsField.setText(limparNulo(currentUser.getSkills()));
+                bioProviderField.setText(clearNull(currentUser.getBio()));
+                portfolioField.setText(clearNull(currentUser.getPortfolioUrl()));
+                skillsField.setText(clearNull(currentUser.getSkills()));
 
                 bioProviderField.setText(currentUser.getBio());
                 portfolioField.setText(currentUser.getPortfolioUrl());
                 skillsField.setText(currentUser.getSkills());
-                if (currentUser.getHourlyRate() != null) {
-                    hourlyRateField.setText(String.valueOf(currentUser.getHourlyRate()));
-                }
+                hourlyRateField.setText(String.valueOf(currentUser.getHourlyRate()));
             }
         } catch (Exception e) {
             msgLabel.setText("Erro ao carregar perfil: " + e.getMessage());
@@ -156,7 +154,11 @@ public class ProfileController {
         skillsField.setEditable(editar);
     }
 
-    private String limparNulo(String valor) {
-        return (valor == null || valor.equalsIgnoreCase("null")) ? "" : valor;
+    private String clearNull(String info) {
+        return (info == null || info.equalsIgnoreCase("null")) ? "" : info;
+    }
+
+    private String clearNull(Double info) {
+        return info == null ? "" : String.valueOf(info);
     }
 }

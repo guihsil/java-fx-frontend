@@ -61,11 +61,8 @@ public class FeedController {
     private VBox createProposalCard(Proposal p){
         VBox card = new VBox(10);
         card.setPadding(new Insets(15));
-        // Ajuste de largura pra ficar bonito no grid
         card.setPrefWidth(280);
         card.setMinWidth(280);
-
-        // Estilização (Bootstrap + CSS Manual)
         card.getStyleClass().addAll("panel", "panel-default");
         card.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); -fx-background-color: #2b2b2b; -fx-background-radius: 8;");
 
@@ -78,17 +75,39 @@ public class FeedController {
         Label lblClient = new Label("@" + publisherName);
         lblClient.setStyle("-fx-text-fill: #aaaaaa; -fx-font-size: 12px;");
 
-        Text txtDesc = new Text(p.getDescription());
+        String descCompleta = p.getDescription();
+        if (descCompleta != null && descCompleta.length() > 100) {
+            descCompleta = descCompleta.substring(0, 100) + "...";
+        }
+
+        Text txtDesc = new Text(descCompleta);
         txtDesc.setWrappingWidth(250);
         txtDesc.setStyle("-fx-fill: white;");
 
         Button btnView = new Button("Ver Detalhes");
         btnView.getStyleClass().addAll("btn", "btn-sm", "btn-info");
         btnView.setMaxWidth(Double.MAX_VALUE);
-        // btnView.setOnAction(e -> abrirDetalhes(p)); <--- Futuro: clique pra ver detalhes
+        btnView.setOnAction(e -> openDetalWindow(p));
 
         card.getChildren().addAll(lblTitle, lblClient, txtDesc, btnView);
 
         return card;
+    }
+
+    private void openDetalWindow(Proposal p) {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(com.freelamarket.App.class.getResource("view/detail_project.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            DetailProjectController controller = loader.getController();
+            controller.setProject(p);
+
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Detalhes da Vaga");
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
