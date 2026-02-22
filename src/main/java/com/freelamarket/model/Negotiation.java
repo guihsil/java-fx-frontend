@@ -10,6 +10,9 @@ public class Negotiation {
     private String status;
     private String providerName;
     private Double proposedValue;
+    private String projectId;
+    private String projectTitle;
+    private String projectDescription;
 
     public Negotiation() {}
 
@@ -59,5 +62,29 @@ public class Negotiation {
 
     public void setProposedValue(Double proposedValue) {
         this.proposedValue = proposedValue;
+    }
+
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getProjectTitle() {
+        return projectTitle;
+    }
+
+    public void setProjectTitle(String projectTitle) {
+        this.projectTitle = projectTitle;
+    }
+
+    public String getProjectDescription() {
+        return projectDescription;
+    }
+
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
     }
 }

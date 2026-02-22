@@ -1,8 +1,11 @@
 package com.freelamarket.controller;
 
 import com.freelamarket.App;
+import com.freelamarket.model.Negotiation;
 import com.freelamarket.model.Proposal;
+import com.freelamarket.model.User;
 import com.freelamarket.service.ProposalService;
+import com.freelamarket.service.UserService;
 import com.freelamarket.util.UserSession;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -29,10 +32,19 @@ public class MyProjectsController {
 
     @FXML
     public void initialize() {
-        loadMyProjects();
+        try {
+            User currentUser = new UserService().getUserData();
+            if ("provider".equalsIgnoreCase(currentUser.getUserType())){
+                loadProviderProposals();
+            } else {
+                loadClientProjects();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private void loadMyProjects() {
+    private void loadClientProjects() {
         String myEmail = UserSession.getInstance().getEmail();
 
         Task<List<Proposal>> task = new Task<>() {
@@ -70,17 +82,87 @@ public class MyProjectsController {
         new Thread(task).start();
     }
 
+    private void loadProviderProposals() {
+        Task<List<Negotiation>> task = new Task<>() {
+            @Override
+            protected List<Negotiation> call() throws Exception {
+                return service.getMyProposals();
+            }
+        };
+
+        task.setOnSucceeded(e -> {
+            cardContainer.getChildren().clear();
+            List<Negotiation> myProposals = task.getValue();
+
+            if (myProposals == null || myProposals.isEmpty()){
+                Label lbl = new Label("Você ainda não enviou propostas para nenhum projeto.");
+                lbl.setStyle("-fx-text-fill: white; -fx-font-size: 14px");
+                cardContainer.getChildren().add(lbl);
+            } else {
+                for(Negotiation n: myProposals) {
+                    cardContainer.getChildren().add(createCardProvider(n));
+                }
+            }
+        });
+
+        task.setOnFailed(e -> {
+            Label lbl = new Label("Erro ao carregar suas propostas.");
+            lbl.setStyle("-fx-text-fill: #ef5350;");
+            cardContainer.getChildren().add(lbl);
+        });
+
+        new Thread(task).start();
+    }
+
+    private VBox createCardProvider(Negotiation n){
+        VBox card = new VBox(10);
+        card.setPadding(new Insets(15));
+        card.setPrefWidth(220);
+        card.setStyle("-fx-background-color: #2b2b2b; " +
+                "-fx-background-radius: 8; " +
+                "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+
+        Label title = new Label("Vaga: " + n.getProjectTitle());
+        title.setStyle("-fx-text-fill: #64b5f6; " +
+                "-fx-font-weight: bold; " +
+                "-fx-font-size: 14px;");
+
+        Label charged = new Label("💰 Seu lance: R$ " + n.getProposedValue());
+        charged.setStyle("-fx-text-fill: white;");
+
+        Label status = new Label("Status: " + n.getStatus());
+
+        if("ACCEPTED".equalsIgnoreCase(n.getStatus())) {
+            status.setStyle("-fx-text-fill: #81c784; " +
+                    "-fx-font-weight: bold;");
+        } else if ("REJECTED".equalsIgnoreCase(n.getStatus())) {
+            status.setStyle("-fx-text-fill: #ef5350; " +
+                    "-fx-font-weight: bold;");
+        } else {
+            status.setStyle("-fx-text-fill: #ffb74d; " +
+                    "-fx-font-style: italic;");
+        }
+
+        card.getChildren().addAll(title, charged, status);
+        return card;
+    }
+
     private VBox createCardAdmin(Proposal p) {
         VBox card = new VBox(10);
         card.setPadding(new Insets((15)));
         card.setPrefWidth(200);
-        card.setStyle("-fx-background-color: #2b2b2b; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+        card.setStyle("-fx-background-color: #2b2b2b; " +
+                "-fx-background-radius: 8; " +
+                "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
 
         Label title = new Label(p.getTitle());
-        title.setStyle("-fx-text-fill: #81c784; -fx-font-weight: bold; -fx-font-size: 14px;");
+        title.setStyle("-fx-text-fill: #81c784; " +
+                "-fx-font-weight: bold; " +
+                "-fx-font-size: 14px;");
 
         Label status = new Label("Status: " + p.getStatus());
-        status.setStyle("-fx-text-fill: #aaaaaa; -fx-font-size: 12px;");
+        status.setStyle("-fx-text-fill: #aaaaaa; " +
+                "-fx-font-size: 12px;");
 
         HBox actions = new HBox(10);
 
@@ -113,7 +195,7 @@ public class MyProjectsController {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             try {
                 if (service.deleteProject(p.getId())) {
-                    loadMyProjects();
+                    loadClientProjects();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -137,7 +219,7 @@ public class MyProjectsController {
             stage.setScene(new javafx.scene.Scene(root));
             stage.show();
 
-            stage.setOnHidden(e -> loadMyProjects());
+            stage.setOnHidden(e -> loadClientProjects());
 
         } catch (IOException e) {
             e.printStackTrace();

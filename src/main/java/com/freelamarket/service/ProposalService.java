@@ -171,4 +171,22 @@ public class ProposalService {
             throw new Exception("Erro ao responder: " + response.statusCode());
         }
     }
+
+    public List<Negotiation> getMyProposals() throws Exception {
+        String token = UserSession.getInstance().getToken();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/negotiations/me"))
+                .header("Authorization", "Bearer " + token)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() == 200) {
+            return mapper.readValue(response.body(), new TypeReference<>() {});
+        } else {
+            throw new Exception("Erro ao carregar minhas propostas: " + response.body());
+        }
+    }
 }
