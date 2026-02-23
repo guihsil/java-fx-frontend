@@ -10,32 +10,40 @@
 
 <VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.freelamarket.controller.ProjectCreateController"
-      spacing="15" style="-fx-background-color: transparent; -fx-padding: 20;">
+      alignment="TOP_CENTER"
+      styleClass="create-container"
+      stylesheets="@../css/project_create.css">
 
-    <Label text="Novo Projeto" styleClass="titulo-h1" style="-fx-text-fill: white;"/>
+    <VBox spacing="20" maxWidth="700">
+        <Label text="Novo Projeto" styleClass="titulo-h1"/>
 
-    <VBox spacing="5">
-        <Label text="Título do Projeto" styleClass="label"/>
-        <TextField fx:id="titleField" promptText="Ex: Site Institucional em React" styleClass="text-field"/>
+        <padding>
+            <Insets top="100" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <VBox spacing="8">
+            <Label text="Título do Projeto" styleClass="form-label"/>
+            <TextField fx:id="titleField" promptText="Ex: Site Institucional em React" styleClass="form-input"/>
+        </VBox>
+
+        <VBox spacing="8">
+            <Label text="Descrição Detalhada" styleClass="form-label"/>
+            <TextArea fx:id="descField" promptText="Descreva o que você precisa..." prefRowCount="5" wrapText="true" styleClass="form-textarea"/>
+        </VBox>
+
+        <VBox spacing="8">
+            <Label text="Orçamento (R$)" styleClass="form-label"/>
+            <TextField fx:id="budgetField" promptText="Ex: 1500.00" styleClass="form-input"/>
+        </VBox>
+
+        <VBox spacing="8">
+            <Label text="Prazo Limite" styleClass="form-label"/>
+            <DatePicker fx:id="deadlinePicker" promptText="Selecione a data" styleClass="form-datepicker" maxWidth="Infinity"/>
+        </VBox>
+
+        <Label fx:id="msgLabel" text="" styleClass="msg-error"/>
+
+        <Button text="🚀 Publicar Projeto" onAction="#handlePublish" styleClass="btn-publish" maxWidth="200"/>
     </VBox>
-
-    <VBox spacing="5">
-        <Label text="Descrição Detalhada" styleClass="label"/>
-        <TextArea fx:id="descField" promptText="Descreva o que você precisa..." prefRowCount="5" wrapText="true"/>
-    </VBox>
-
-    <VBox spacing="5">
-        <Label text="Orçamento (R$)" styleClass="label"/>
-        <TextField fx:id="budgetField" promptText="Ex: 1500.00"/>
-    </VBox>
-
-    <VBox spacing="5">
-        <Label text="Prazo Limite" styleClass="label"/>
-        <DatePicker fx:id="deadlinePicker" promptText="Selecione a data"/>
-    </VBox>
-
-    <Label fx:id="msgLabel" text="" styleClass="text-danger"/>
-
-    <Button text="🚀 Publicar Projeto" onAction="#handlePublish" styleClass="btn-primary" maxWidth="200"/>
 
 </VBox>

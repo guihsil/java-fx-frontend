@@ -61,20 +61,21 @@ public class ProjectProposeController {
     private VBox createProposalCards(Negotiation n) {
         VBox card = new VBox(10);
         card.setPadding(new Insets(15));
-        card.setStyle("-fx-background-color: #2b2b2b; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 0);");
+
+        card.getStyleClass().add("proposta-card");
 
         Label lblNome = new Label("👤 " + (n.getProviderName() != null ? n.getProviderName() : "Freelancer Anônimo"));
-        lblNome.setStyle("-fx-text-fill: #64b5f6; -fx-font-weight: bold; -fx-font-size: 14px;");
+        lblNome.getStyleClass().add("proposta-nome");
 
         Label lblValor = new Label("💰 Cobrou: R$ " + n.getProposedValue());
-        lblValor.setStyle("-fx-text-fill: #81c784; -fx-font-weight: bold;");
+        lblValor.getStyleClass().add("proposta-valor");
 
         Text txtMensagem = new Text("Mensagem: " + n.getMessage());
-        txtMensagem.setStyle("-fx-fill: white;");
+        txtMensagem.getStyleClass().add("proposta-msg");
         txtMensagem.setWrappingWidth(380);
 
         Label lblEstado = new Label("Status: " + n.getStatus());
-        lblEstado.setStyle("-fx-text-fill: #aaaaaa; -fx-font-style: italic;");
+        lblEstado.getStyleClass().add("status-text");
 
         HBox boxBotoes = new HBox(10);
         Button btnAceitar = new Button("✅ Aceitar");
@@ -107,7 +108,7 @@ public class ProjectProposeController {
                 alert.setContentText(aceitar ? "Proposta ACEITA com sucesso! 🎉" : "Proposta recusada.");
                 alert.showAndWait();
 
-                loadProposes();
+                loadProposes(); // Recarrega para sumir com os botões!
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -115,5 +116,4 @@ public class ProjectProposeController {
             alert.show();
         }
     }
-
 }

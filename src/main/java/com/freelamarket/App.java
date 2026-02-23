@@ -17,9 +17,6 @@ public class App extends Application {
             Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
             scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
-            scene.getStylesheets().add(App.class.getResource("css/login.css").toExternalForm());
-            scene.getStylesheets().add(App.class.getResource("css/register.css").toExternalForm());
-            scene.getStylesheets().add(App.class.getResource("css/home.css").toExternalForm());
 
             stage.setTitle("FreelaMarket");
             stage.setScene(scene);

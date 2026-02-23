@@ -7,11 +7,8 @@ import com.freelamarket.service.ProposalService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane; // Importante pra pegar o Pai
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import java.time.LocalDate;
 
 public class ProjectCreateController {
@@ -24,6 +21,15 @@ public class ProjectCreateController {
 
     private final ProposalService service = new ProposalService();
     private String idEditingProject = null;
+
+    @FXML
+    public void initialize() {
+        final int MAX_CHARS = 15000;
+
+        descField.setTextFormatter(new TextFormatter<>(change ->
+                change.getControlNewText().length() <= MAX_CHARS ? change : null
+        ));
+    }
 
     @FXML
     public void handlePublish() {

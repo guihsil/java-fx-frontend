@@ -4,22 +4,40 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="15" style="-fx-background-color: #1e1e1e; -fx-padding: 25;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.freelamarket.controller.DetailProjectController">
+<VBox alignment="TOP_CENTER"
+      styleClass="detail-container"
+      stylesheets="@../css/detail_project.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.freelamarket.controller.DetailProjectController">
 
-    <Label fx:id="lblTitle" style="-fx-font-size: 22px; -fx-text-fill: #81c784; -fx-font-weight: bold;" wrapText="true"/>
-    <Label fx:id="lblClient" style="-fx-text-fill: #aaaaaa; -fx-font-size: 14px;"/>
+    <VBox spacing="20" maxWidth="800">
 
-    <Label text="Descrição Completa:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
-    <TextArea fx:id="txtDesc" editable="false" wrapText="true" prefRowCount="6" prefColumnCount="40" style="-fx-control-inner-background: #2b2b2b; -fx-text-fill: white;"/>
+        <VBox spacing="5">
+            <Label fx:id="lblTitle" styleClass="detail-title" wrapText="true"/>
+            <Label fx:id="lblClient" styleClass="detail-client"/>
+        </VBox>
 
-    <Label fx:id="lblBudget" style="-fx-text-fill: #64b5f6; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <VBox spacing="8">
+            <Label text="Descrição Completa:" styleClass="detail-label"/>
+            <TextArea fx:id="txtDesc" editable="false" wrapText="true" prefRowCount="6" styleClass="detail-textarea"/>
+        </VBox>
 
-    <VBox fx:id="boxProposta" spacing="10" style="-fx-background-color: #2b2b2b; -fx-padding: 15; -fx-background-radius: 8;">
-        <Label text="Enviar Proposta para este Projeto" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
-        <TextField fx:id="txtValor" promptText="Valor Cobrado (Ex: 1500.00)" style="-fx-background-color: #333333; -fx-text-fill: white;"/>
-        <TextArea fx:id="txtMensagem" promptText="Escreve aqui a tua mensagem ou argumento de venda..." prefRowCount="3" style="-fx-control-inner-background: #333333; -fx-text-fill: white;" wrapText="true"/>
-        <Button text="🚀 Enviar Proposta" onAction="#sendPropose" styleClass="btn, btn-success"/>
-        <Label fx:id="lblStatus" text="" style="-fx-text-fill: #81c784;" wrapText="true"/>
+        <Label fx:id="lblBudget" styleClass="detail-budget"/>
+
+        <VBox fx:id="boxProposta" spacing="15" styleClass="propose-box">
+            <Label text="Enviar Proposta para este Projeto" styleClass="detail-label"/>
+
+            <TextField fx:id="txtValor" promptText="Valor Cobrado (Ex: 1500.00)" styleClass="detail-input"/>
+
+            <TextArea fx:id="txtMensagem" promptText="Escreve aqui a tua mensagem ou argumento de venda..." prefRowCount="4" wrapText="true" styleClass="detail-textarea"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button text="🚀 Enviar Proposta" onAction="#sendPropose" styleClass="btn-success"/>
+                <Label fx:id="lblStatus" styleClass="msg-status" wrapText="true"/>
+            </HBox>
+        </VBox>
+
     </VBox>
 
 </VBox>

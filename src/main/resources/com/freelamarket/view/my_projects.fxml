@@ -8,14 +8,16 @@
 
 <VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.freelamarket.controller.MyProjectsController"
-      spacing="20" style="-fx-background-color: #1e1e1e; -fx-padding: 20;">
+      spacing="20"
+      stylesheets="@../css/my_projects.css"
+      styleClass="my-projects-container">
 
-    <Label text="Meus Projetos" style="-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;"/>
-    <Label text="Gerencie suas vagas publicadas." style="-fx-text-fill: #aaaaaa;"/>
+    <Label text="Meus Projetos" styleClass="my-projects-th1"/>
+    <Label text="Gerencie suas vagas publicadas." styleClass="my-projects-subtitle"/>
 
-    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+    <ScrollPane fitToWidth="true" styleClass="my-projects-scroll-pane">
         <content>
-            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" style="-fx-background-color: transparent;"/>
+            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="my-projects-container"/>
         </content>
     </ScrollPane>
 </VBox>

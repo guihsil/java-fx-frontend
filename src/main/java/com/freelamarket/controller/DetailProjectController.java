@@ -30,9 +30,8 @@ public class DetailProjectController {
         lblTitle.setText(p.getTitle());
         lblClient.setText("Publicado por: @" + (p.getClientName() != null ? p.getClientName() : "Anônimo"));
         txtDesc.setText(p.getDescription());
-
-        // Verifica no teu model se é getBudget(), getValue() ou getPrice()
         lblBudget.setText("Orçamento previsto: R$ " + p.getValue());
+        lblBudget.setStyle("-fx-text-fill: my-primary-text;");
 
         verifyUserType();
     }
@@ -40,7 +39,6 @@ public class DetailProjectController {
     private void verifyUserType() {
         try {
             User currentUser = userService.getUserData();
-            // Se for PROVIDER, mostra a caixa para enviar proposta. Se for CLIENT, esconde.
             if ("PROVIDER".equalsIgnoreCase(currentUser.getUserType())) {
                 boxProposta.setVisible(true);
                 boxProposta.setManaged(true);

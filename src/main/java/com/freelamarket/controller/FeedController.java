@@ -4,7 +4,10 @@ import com.freelamarket.model.Proposal;
 import com.freelamarket.service.ProposalService;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -61,8 +64,8 @@ public class FeedController {
     private VBox createProposalCard(Proposal p){
         VBox card = new VBox(10);
         card.setPadding(new Insets(15));
-        card.setPrefWidth(280);
-        card.setMinWidth(280);
+        card.setPrefWidth(300);
+        card.setMinWidth(300);
         card.getStyleClass().addAll("panel", "panel-default");
         card.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); -fx-background-color: #2b2b2b; -fx-background-radius: 8;");
 
@@ -96,15 +99,15 @@ public class FeedController {
 
     private void openDetalWindow(Proposal p) {
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(com.freelamarket.App.class.getResource("view/detail_project.fxml"));
-            javafx.scene.Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(com.freelamarket.App.class.getResource("view/detail_project.fxml"));
+            Parent root = loader.load();
 
             DetailProjectController controller = loader.getController();
             controller.setProject(p);
 
             javafx.stage.Stage stage = new javafx.stage.Stage();
             stage.setTitle("Detalhes da Vaga");
-            stage.setScene(new javafx.scene.Scene(root));
+            stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();

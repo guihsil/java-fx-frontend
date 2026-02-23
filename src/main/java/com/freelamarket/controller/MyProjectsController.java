@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -19,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
@@ -166,15 +168,15 @@ public class MyProjectsController {
 
         HBox actions = new HBox(10);
 
-        Button btnVerPropostas = new Button("👀 Ver Propostas");
+        Button btnVerPropostas = new Button("Ver");
         btnVerPropostas.getStyleClass().addAll("btn", "btn-sm", "btn-info");
         btnVerPropostas.setOnAction(e -> openProposes(p));
 
-        Button btnEdit = new Button("✏️ Editar");
+        Button btnEdit = new Button("Editar");
         btnEdit.getStyleClass().addAll("btn", "btn-sm", "btn-warning");
         btnEdit.setOnAction(e -> handleEdit(p));
 
-        Button btnDelete = new Button("🗑️ Excluir");
+        Button btnDelete = new Button("Excluir");
         btnDelete.getStyleClass().addAll("btn", "btn-sm", "btn-danger");
         btnDelete.setOnAction(e -> handleDelete(p));
 
@@ -228,15 +230,15 @@ public class MyProjectsController {
 
     private void openProposes(com.freelamarket.model.Proposal p) {
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(com.freelamarket.App.class.getResource("view/project_proposes.fxml"));
-            javafx.scene.Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(com.freelamarket.App.class.getResource("view/project_proposes.fxml"));
+            Parent root = loader.load();
 
             ProjectProposeController controller = loader.getController();
             controller.setProjetct(p.getId(), p.getTitle());
 
-            javafx.stage.Stage stage = new javafx.stage.Stage();
+            Stage stage = new Stage();
             stage.setTitle("Gerenciar Propostas");
-            stage.setScene(new javafx.scene.Scene(root));
+            stage.setScene(new Scene(root, 500, 600));
             stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();

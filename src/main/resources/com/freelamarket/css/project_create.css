@@ -1,0 +1,91 @@
+.root {
+    my-background-color: #0D1A14;
+    my-cards-color: #162A21;
+    my-buttons: #3D8B5D;
+    my-primary-text: #E0EADD;
+    my-secondary-text: #8A9B91;
+    my-forms-background-color: #1C3329;
+    my-selected-button: #2E6148;
+
+    -fx-background-color: my-background-color;
+}
+
+.container {
+    -fx-background-color: transparent;
+    -fx-padding: 100 30 30 30;
+}
+
+.titulo-h1 {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: my-primary-text;
+}
+
+.form-label {
+    -fx-text-fill: my-secondary-text;
+    -fx-font-weight: bold;
+}
+
+.msg-error {
+    -fx-text-fill: #ef5350;
+    -fx-font-weight: bold;
+}
+
+.form-input {
+    -fx-background-color: my-forms-background-color;
+    -fx-text-fill: my-primary-text;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+
+.form-textarea {
+    -fx-background-color: my-forms-background-color;
+    -fx-control-inner-background: my-forms-background-color;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-prompt-text-fill: my-secondary-text;
+    -fx-text-fill: my-primary-text;
+}
+
+.form-textarea .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.form-textarea .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-textarea .scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.form-datepicker {
+    -fx-background-color: my-forms-background-color;
+    -fx-border-radius: 5px;
+}
+.form-datepicker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: my-primary-text;
+    -fx-padding: 10px;
+}
+.form-datepicker .arrow-button {
+    -fx-background-color: transparent;
+}
+.form-datepicker .arrow-button .arrow {
+    -fx-background-color: my-secondary-text;
+}
+
+.btn-publish {
+    -fx-background-color: my-buttons;
+    -fx-text-fill: my-primary-text;
+    -fx-font-family: "Poppins", "JetBrains";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 25;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+
+.btn-publish:hover {
+    -fx-background-color: my-selected-button;
+}

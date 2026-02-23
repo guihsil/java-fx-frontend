@@ -1,0 +1,52 @@
+.root {
+    my-background-color: #0D1A14;
+    my-cards-color: #162A21;
+    my-buttons: #3D8B5D;
+    my-primary-text: #E0EADD;
+    my-secondary-text: #8A9B91;
+    my-forms-background-color: #1C3329;
+    my-selected-button: #2E6148;
+
+    -fx-background-color: my-background-color;
+}
+
+.my-projects-container {
+    -fx-background-color: transparent;
+    -fx-padding: 20;
+}
+
+.my-projects-th1 {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: my-primary-text;
+}
+
+.my-projects-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: my-secondary-text;
+}
+
+.my-projects-scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.my-projects-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: my-forms-background-color;
+    -fx-background-radius: 5px;
+}
+.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: my-buttons;
+}
+.scroll-bar:vertical .track, .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

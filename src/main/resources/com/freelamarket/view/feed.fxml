@@ -9,17 +9,19 @@
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.freelamarket.controller.FeedController"
-      spacing="20" style="-fx-background-color: transparent;">
+      spacing="20"
+      stylesheets="@../css/feed.css"
+      styleClass="container">
 
     <padding>
         <Insets top="10" right="10" bottom="10" left="10"/>
     </padding>
 
-    <Label text="Projetos Recentes" styleClass="titulo-h1" style="-fx-text-fill: white;"/>
+    <Label text="Projetos Recentes" styleClass="titulo-h1"/>
 
-    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+    <ScrollPane fitToWidth="true" styleClass="scroll-pane">
         <content>
-            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" style="-fx-background-color: transparent;"/>
+            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="container"/>
         </content>
     </ScrollPane>
 </VBox>

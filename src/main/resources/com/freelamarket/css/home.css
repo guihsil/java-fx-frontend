@@ -1,10 +1,20 @@
-/* Fundo da barra lateral */
+.root {
+    my-background-color: #0D1A14;
+    my-cards-color: #162A21;
+    my-buttons: #3D8B5D;
+    my-primary-text: #E0EADD;
+    my-secondary-text: #8A9B91;
+    my-forms-background-color: #1C3329;
+    my-selected-button: #2E6148;
+
+    -fx-background-color: my-background-color;
+}
+
 .sidebar {
-    -fx-background-color: #252525; /* Um cinza um pouco mais claro que o fundo */
+    -fx-background-color: #252525;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
 }
 
-/* Botões do Menu */
 .nav-btn {
     -fx-background-color: transparent;
     -fx-text-fill: #cccccc;
@@ -19,7 +29,6 @@
     -fx-background-radius: 5px;
 }
 
-/* Botão de Sair (Vermelhinho discreto) */
 .nav-btn-danger {
     -fx-background-color: transparent;
     -fx-text-fill: #ef5350;
@@ -27,4 +36,16 @@
 }
 .nav-btn-danger:hover {
     -fx-background-color: rgba(239, 83, 80, 0.1);
+}
+
+.home-titulo-h1 {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: my-primary-text;
+}
+
+.home-titulo-h2 {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: my-primary-text;
 }

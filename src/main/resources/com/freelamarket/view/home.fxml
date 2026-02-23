@@ -13,12 +13,12 @@
             stylesheets="@../css/home.css">
 
     <left>
-        <VBox spacing="15" styleClass="sidebar">
+        <VBox spacing="15" styleClass="home-sidebar">
             <padding>
                 <Insets top="30" right="20" bottom="20" left="20"/>
             </padding>
 
-            <Label text="FreelaMarket" styleClass="titulo-h2" />
+            <Label text="FreelaMarket" styleClass="home-titulo-h2" />
 
             <Label text=" " />
 
@@ -37,8 +37,8 @@
     </left>
 
     <center>
-        <StackPane fx:id="contentArea" style="-fx-background-color: #1e1e1e; -fx-padding: 30;">
-            <Label text="Bem-vindo ao FreelaMarket!" styleClass="titulo-h1"/>
+        <StackPane fx:id="contentArea" styleClass="home-content-area">
+            <Label text="Bem-vindo ao FreelaMarket!" styleClass="home-titulo-h1"/>
         </StackPane>
     </center>
 

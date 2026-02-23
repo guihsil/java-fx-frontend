@@ -59,14 +59,13 @@
 }
 
 .combo-box-popup .list-cell {
-    -fx-text-fill: my-secondary-text; /* Cor do texto */
-    -fx-padding: 10px; /* Deixa os itens mais gordinhos */
+    -fx-text-fill: my-secondary-text;
+    -fx-padding: 10px;
     -fx-background-color: transparent;
 }
 
 .reg-btn {
     -fx-font-family: "JetBrains";
-    -fx-font-size: 16;
     -fx-background-color: my-buttons;
     -fx-text-fill: my-primary-text;
     -fx-border-color: transparent;
