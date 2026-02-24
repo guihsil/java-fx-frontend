@@ -2,13 +2,12 @@ package com.freelamarket.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.LocalDateTime;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) // Ignora campos que sobrarem (segurança)
 public class Proposal {
 
-    private String id;
+    private String id; // O Jackson converte o UUID do backend para String automaticamente
 
     @JsonProperty("title")
     private String title;
@@ -16,25 +15,28 @@ public class Proposal {
     @JsonProperty("description")
     private String description;
 
-    @JsonProperty("budget")
+    @JsonProperty("budget") // Mapeia o campo 'budget' do DTO para a variável 'value'
     private Double value;
 
-    @JsonProperty("status")
+    @JsonProperty("status") // Recebe o Enum como String
     private String status;
 
     @JsonProperty("deadline")
     private LocalDateTime deadline;
 
-    @JsonProperty("clientUserName")
+    @JsonProperty("clientName") // AQUI ESTAVA O ERRO: Agora bate com o DTO
     private String clientName;
 
-    @JsonProperty("clientUserEmail")
-    private String clientEmail;
-
+    // Construtor vazio (obrigatório para o Jackson)
     public Proposal() {}
 
+    // Getters e Setters
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -83,13 +85,5 @@ public class Proposal {
 
     public void setClientName(String clientName) {
         this.clientName = clientName;
-    }
-
-    public String getClientEmail() {
-        return clientEmail;
-    }
-
-    public void setClientEmail(String clientEmail) {
-        this.clientEmail = clientEmail;
     }
 }

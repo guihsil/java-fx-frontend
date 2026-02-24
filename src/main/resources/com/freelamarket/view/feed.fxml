@@ -9,19 +9,30 @@
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.freelamarket.controller.FeedController"
-      spacing="20"
+      spacing="15"
       stylesheets="@../css/feed.css"
-      styleClass="container">
+      styleClass="root"> <padding>
+    <Insets top="30" right="40" bottom="30" left="40"/>
+</padding>
 
-    <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
-    </padding>
+    <VBox styleClass="header-section">
+        <Label text="Feed de Oportunidades" styleClass="titulo-h1"/>
+        <Label text="Encontre seu próximo projeto freelance"
+               style="-fx-text-fill: #6B7280; -fx-font-size: 14px; -fx-padding: 0 0 0 12;"/>
+    </VBox>
 
-    <Label text="Projetos Recentes" styleClass="titulo-h1"/>
-
-    <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                styleClass="scroll-pane" VBox.vgrow="ALWAYS">
         <content>
-            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="container"/>
+            <FlowPane fx:id="cardContainer"
+                      hgap="25" vgap="25"
+                      styleClass="container"
+                      alignment="TOP_LEFT">
+                <padding>
+                    <Insets top="10" right="10" bottom="20" left="10"/>
+                </padding>
+            </FlowPane>
         </content>
     </ScrollPane>
+
 </VBox>

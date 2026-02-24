@@ -1,58 +1,69 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
+    /* Paleta Light & Blue */
+    my-bg: #F3F4F6;             /* Cinza bem clarinho para o fundo da tela */
+    my-card: #FFFFFF;           /* Branco puro para a caixa de login */
+    my-primary-blue: #2563EB;   /* Azul Royal (estilo profissional) */
+    my-hover-blue: #1D4ED8;     /* Azul um pouco mais escuro para o hover */
+    my-text-main: #1F2937;      /* Cinza quase preto para textos principais */
+    my-text-muted: #6B7280;     /* Cinza médio para textos auxiliares */
+    my-input-bg: #FFFFFF;
+    my-border-color: #D1D5DB;   /* Cor da borda padrão */
 
-    -fx-background-color: my-background-color;
+    -fx-background-color: my-bg;
+    -fx-font-family: "Segoe UI", system-ui;
 }
 
+/* --- A Caixa de Login --- */
 .login-info {
-    -fx-background-color: my-cards-color;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
-    -fx-background-radius: 20px;
+    -fx-background-color: my-card;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: my-primary-blue; /* Borda Azul conforme pedido */
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);
 }
 
-.login-h1 {
-    -fx-text-fill: my-primary-text;
-}
-
-.login-h5 {
-    -fx-text-fill: my-secondary-text;
-}
-
+/* --- Campos de Entrada --- */
 .login-form-control {
-    -fx-border-radius: 5px;
+    -fx-background-color: my-input-bg;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: my-border-color;
+    -fx-border-width: 1px;
+    -fx-text-fill: my-text-main;
     -fx-padding: 10px;
-    -fx-border-color: transparent;
-    -fx-background-color: my-forms-background-color;
-    -fx-text-fill: my-secondary-text;
 }
 
-.login-btn {
-    -fx-background-color: my-buttons;
-    -fx-text-fill: my-primary-text;
-    -fx-border-color: transparent;
-    -fx-cursor: hand;
+.login-form-control:focused {
+    -fx-border-color: my-primary-blue;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.2), 5, 0, 0, 0);
+}
+
+/* --- Títulos --- */
+.login-h1 {
+    -fx-text-fill: my-primary-blue; /* Título em azul para destacar a marca */
+    -fx-font-size: 26px;
     -fx-font-weight: bold;
-    -fx-padding: 10 25 10 25;
+}
+
+.text-muted {
+    -fx-text-fill: my-text-muted;
+}
+
+/* --- Botão Principal --- */
+.login-btn {
+    -fx-background-color: my-primary-blue;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
 }
 
 .login-btn:hover {
-    -fx-background-color: my-selected-button;
-    -fx-border-color: transparent;
-    -fx-text-fill: my-secondary-text;
+    -fx-background-color: my-hover-blue;
 }
 
+/* --- Hyperlink --- */
 .login-hyperlink {
-    -fx-border-color: transparent;
-    -fx-font-weight: bold;
-    -fx-text-fill: my-buttons;
-}
-
-.login-hyperlink:hover {
-    -fx-underline: false;
+    -fx-text-fill: my-primary-blue;
 }

@@ -47,14 +47,21 @@ public class MyProjectsController {
     }
 
     private void loadClientProjects() {
-        String myEmail = UserSession.getInstance().getEmail();
+        // Passo 1: Não usamos mais o email da sessão direto, pois precisamos comparar Nomes
 
         Task<List<Proposal>> task = new Task<>() {
             @Override
             protected List<Proposal> call() throws Exception {
+                // A. Pegamos os dados do usuário logado para saber o nome dele
+                User currentUser = new UserService().getUserData();
+                String myName = currentUser.getName();
+
+                // B. Carregamos todos os projetos
                 List<Proposal> allProjects = service.loadProposals();
+
+                // C. CORREÇÃO: Filtramos pelo clientName (único dado que temos agora)
                 return allProjects.stream()
-                        .filter(p -> p.getClientEmail() != null && p.getClientEmail().equals(myEmail))
+                        .filter(p -> p.getClientName() != null && p.getClientName().equalsIgnoreCase(myName))
                         .collect(Collectors.toList());
             }
         };
@@ -65,7 +72,7 @@ public class MyProjectsController {
 
             if(mine.isEmpty()) {
                 Label lbl = new Label("Você não criou nenhum projeto.");
-                lbl.setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
+                lbl.setStyle("-fx-text-fill: #9ca3af; -fx-font-size: 14px;"); // Cinza claro
                 cardContainer.getChildren().add(lbl);
             } else {
                 for(Proposal p: mine) {

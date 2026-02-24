@@ -4,40 +4,80 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER"
-      styleClass="detail-container"
-      stylesheets="@../css/detail_project.css"
-      xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.freelamarket.controller.DetailProjectController">
+<ScrollPane fitToWidth="true"
+            styleClass="root"
+            stylesheets="@../css/detail_project.css"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.freelamarket.controller.DetailProjectController">
 
-    <VBox spacing="20" maxWidth="800">
+    <VBox alignment="TOP_CENTER" styleClass="content-wrapper">
 
-        <VBox spacing="5">
-            <Label fx:id="lblTitle" styleClass="detail-title" wrapText="true"/>
-            <Label fx:id="lblClient" styleClass="detail-client"/>
-        </VBox>
+        <VBox spacing="25" styleClass="project-card">
 
-        <VBox spacing="8">
-            <Label text="Descrição Completa:" styleClass="detail-label"/>
-            <TextArea fx:id="txtDesc" editable="false" wrapText="true" prefRowCount="6" styleClass="detail-textarea"/>
-        </VBox>
+            <VBox spacing="5">
+                <Label fx:id="lblTitle" text="Carregando Título..." styleClass="detail-title" wrapText="true"/>
+                <Label fx:id="lblClient" text="Publicado por: ..." styleClass="detail-client"/>
+            </VBox>
 
-        <Label fx:id="lblBudget" styleClass="detail-budget"/>
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <HBox styleClass="info-badge-blue" spacing="8" alignment="CENTER_LEFT">
+                    <Label text="💰" style="-fx-font-size: 16px;"/>
+                    <Label fx:id="lblBudget" text="R$ 0,00" styleClass="detail-value-blue"/>
+                </HBox>
 
-        <VBox fx:id="boxProposta" spacing="15" styleClass="propose-box">
-            <Label text="Enviar Proposta para este Projeto" styleClass="detail-label"/>
-
-            <TextField fx:id="txtValor" promptText="Valor Cobrado (Ex: 1500.00)" styleClass="detail-input"/>
-
-            <TextArea fx:id="txtMensagem" promptText="Escreve aqui a tua mensagem ou argumento de venda..." prefRowCount="4" wrapText="true" styleClass="detail-textarea"/>
-
-            <HBox alignment="CENTER_LEFT" spacing="15">
-                <Button text="🚀 Enviar Proposta" onAction="#sendPropose" styleClass="btn-success"/>
-                <Label fx:id="lblStatus" styleClass="msg-status" wrapText="true"/>
+                <HBox styleClass="info-badge-red" spacing="8" alignment="CENTER_LEFT">
+                    <Label text="📅" style="-fx-font-size: 16px;"/>
+                    <Label fx:id="lblDeadline" text="Sem prazo" styleClass="detail-value-red"/>
+                </HBox>
             </HBox>
+
+            <Separator styleClass="separator-line"/>
+
+            <VBox spacing="10">
+                <Label text="DESCRIÇÃO DETALHADA" styleClass="section-label"/>
+                <Label fx:id="lblDesc"
+                       text="Carregando descrição..."
+                       wrapText="true"
+                       styleClass="description-text"/>
+            </VBox>
+
+            <Separator styleClass="separator-line"/>
+
+            <VBox fx:id="boxProposta" spacing="20" styleClass="propose-area">
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="🚀" style="-fx-font-size: 20px;"/>
+                    <Label text="ENVIAR UMA PROPOSTA" styleClass="section-label-dark"/>
+                </HBox>
+
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="30"/>
+                        <ColumnConstraints percentWidth="70"/>
+                    </columnConstraints>
+
+                    <VBox spacing="8" GridPane.columnIndex="0">
+                        <Label text="SEU PREÇO (R$)" styleClass="input-label"/>
+                        <TextField fx:id="txtValor" promptText="Ex: 1500.00" styleClass="input-field"/>
+                    </VBox>
+
+                    <VBox spacing="8" GridPane.columnIndex="1">
+                        <Label text="POR QUE VOCÊ?" styleClass="input-label"/>
+                        <TextArea fx:id="txtMensagem"
+                                  promptText="Olá! Tenho experiência com..."
+                                  prefRowCount="3"
+                                  wrapText="true"
+                                  styleClass="input-field"/>
+                    </VBox>
+                </GridPane>
+
+                <HBox alignment="CENTER_RIGHT" spacing="15">
+                    <Label fx:id="lblStatus" styleClass="msg-status" wrapText="true"/>
+                    <Button text="Enviar Proposta" onAction="#sendPropose" styleClass="btn-primary"/>
+                </HBox>
+            </VBox>
+
         </VBox>
-
     </VBox>
-
-</VBox>
+</ScrollPane>

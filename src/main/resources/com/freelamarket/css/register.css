@@ -1,91 +1,112 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
+    /* Mesma paleta do seu Login */
+    my-bg: #F3F4F6;
+    my-card: #FFFFFF;
+    my-primary: #2563EB;
+    my-hover: #1D4ED8;
+    my-border: #D1D5DB;
+    my-text: #1F2937;
+    my-text-muted: #6B7280;
 
-    -fx-background-color: my-background-color;
+    -fx-background-color: my-bg;
 }
 
+/* --- Caixa de Registro (Igual ao Login) --- */
 .reg-info {
-    -fx-background-color: my-cards-color;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
-    -fx-background-radius: 20px;
+    -fx-background-color: my-card;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-border-color: my-primary;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);
+    -fx-padding: 35px;
 }
 
+/* --- Títulos --- */
 .reg-h3 {
-    -fx-font-family: "Poppins Black";
-    -fx-text-fill: my-primary-text;
+    -fx-text-fill: my-primary;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
 }
 
 .reg-h5 {
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: my-text;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
 }
 
-.reg-form-control {
-    -fx-border-radius: 5px;
+/* --- Inputs e ComboBox (O segredo da unificação) --- */
+.reg-form-control, .reg-combobox {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: my-border;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
     -fx-padding: 10px;
-    -fx-border-color: transparent;
-    -fx-background-color: my-forms-background-color;
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: my-text;
 }
 
+.reg-form-control:focused, .reg-combobox:focused {
+    -fx-border-color: my-primary;
+    -fx-border-width: 2px;
+    -fx-padding: 9px; /* Ajuste para compensar a borda mais grossa e não "pular" */
+}
+
+/* --- CORREÇÃO DEFINITIVA DO COMBOBOX --- */
 .reg-combobox {
-    -fx-border-radius: 5px;
-    -fx-padding: 10px;
-    -fx-border-color: transparent;
-    -fx-background-color: my-forms-background-color;
-    -fx-prompt-text-fill: my-secondary-text;
+    -fx-padding: 0; /* Remove o padding do pai para o botão colar na borda */
 }
 
 .reg-combobox .list-cell {
-    -fx-text-fill: my-secondary-text;
+    -fx-padding: 10px 15px;
+    -fx-text-fill: my-text;
+}
+
+.reg-combobox .arrow-button {
+    -fx-background-color: my-primary;
+    -fx-background-radius: 0 6px 6px 0; /* Encaixa perfeito no arredondado do pai */
+    -fx-padding: 0 12px;
 }
 
 .reg-combobox .arrow {
-    -fx-background-color: my-background-color;
+    -fx-background-color: white;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
 
-.reg-combobox .text-input {
-    -fx-prompt-text-fill: my-secondary-text;
-}
-
+/* Popup do ComboBox (Lista que abre) */
 .combo-box-popup .list-view {
-    -fx-background-color: my-cards-color;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0.0, 0, 0);
+    -fx-background-color: white;
+    -fx-border-color: my-border;
+    -fx-background-radius: 8px;
 }
 
-.combo-box-popup .list-cell {
-    -fx-text-fill: my-secondary-text;
-    -fx-padding: 10px;
-    -fx-background-color: transparent;
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #EBF5FF;
+    -fx-text-fill: my-primary;
 }
 
+/* --- Botões --- */
 .reg-btn {
-    -fx-font-family: "JetBrains";
-    -fx-background-color: my-buttons;
-    -fx-text-fill: my-primary-text;
-    -fx-border-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-padding: 12 25 12 25;
     -fx-cursor: hand;
     -fx-font-weight: bold;
-    -fx-padding: 10 25 10 25;
 }
 
-.reg-btn:hover {
-    -fx-background-color: my-selected-button;
-    -fx-border-color: transparent;
-    -fx-text-fill: my-secondary-text;
+.reg-btn-success {
+    -fx-background-color: my-primary;
+    -fx-text-fill: white;
 }
 
-.reg-hyperlink {
-    -fx-border-color: transparent;
-    -fx-font-weight: bold;
-    -fx-text-fill: my-buttons;
+.reg-btn-success:hover {
+    -fx-background-color: my-hover;
 }
 
-.reg-hyperlink:hover {
-    -fx-underline: false;
+.reg-btn-default {
+    -fx-background-color: transparent;
+    -fx-text-fill: my-text-muted;
+    -fx-border-color: my-border;
+}
+
+.reg-btn-default:hover {
+    -fx-background-color: #F9FAFB;
 }
