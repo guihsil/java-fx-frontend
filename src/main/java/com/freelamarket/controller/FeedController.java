@@ -40,8 +40,8 @@ public class FeedController {
             cardContainer.getChildren().clear();
 
             if (proposals == null || proposals.isEmpty()) {
-                Label emptyLabel = new Label("Nenhuma Proposta Encontrada 😢");
-                emptyLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px;");
+                Label emptyLabel = new Label("Nenhuma Proposta Encontrada");
+                emptyLabel.getStyleClass().addAll("not-found-projects");
                 cardContainer.getChildren().add(emptyLabel);
             } else {
                 for (Proposal p: proposals){
@@ -66,17 +66,15 @@ public class FeedController {
         card.setPadding(new Insets(15));
         card.setPrefWidth(300);
         card.setMinWidth(300);
-        card.getStyleClass().addAll("panel", "panel-default");
-        card.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); -fx-background-color: #2b2b2b; -fx-background-radius: 8;");
+        card.getStyleClass().addAll("feed-card-panel");
 
         Label lblTitle = new Label(p.getTitle());
-        lblTitle.getStyleClass().addAll("h4", "strong");
-        lblTitle.setStyle("-fx-text-fill: #81c784;");
+        lblTitle.getStyleClass().addAll("feed-title");
         lblTitle.setWrapText(true);
 
         String publisherName = (p.getClientName() != null) ? p.getClientName() : "Anônimo";
         Label lblClient = new Label("@" + publisherName);
-        lblClient.setStyle("-fx-text-fill: #aaaaaa; -fx-font-size: 12px;");
+        lblClient.getStyleClass().addAll("feed-publisher");
 
         String descCompleta = p.getDescription();
         if (descCompleta != null && descCompleta.length() > 100) {
@@ -85,7 +83,7 @@ public class FeedController {
 
         Text txtDesc = new Text(descCompleta);
         txtDesc.setWrappingWidth(250);
-        txtDesc.setStyle("-fx-fill: white;");
+        txtDesc.getStyleClass().addAll("feed-desc");
 
         Button btnView = new Button("Ver Detalhes");
         btnView.getStyleClass().addAll("btn", "btn-sm", "btn-info");
