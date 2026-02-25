@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.freelamarket.controller.RegisterController"
            prefHeight="720.0" prefWidth="1280.0"
@@ -46,10 +47,13 @@
         <VBox spacing="10">
             <Button text="Finalizar Cadastro" onAction="#handleSignup"
                     maxWidth="Infinity" styleClass="reg-btn, reg-btn-success, reg-btn-lg"/>
-
-            <Button text="Voltar para Login" onAction="#handleBack"
-                    maxWidth="Infinity" styleClass="reg-btn, reg-btn-default"/>
         </VBox>
+
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Voltar para" styleClass="text-muted"/>
+            <Hyperlink text="Login" onAction="#handleBack"
+                       styleClass="reg-hyperlink"/>
+        </HBox>
 
     </VBox>
 
