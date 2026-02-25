@@ -42,7 +42,7 @@ public class ProjectCreateController {
 
             String title = titleField.getText();
             String desc = descField.getText();
-            Double budget = Double.parseDouble(budgetField.getText().replace(",", ".")); // Aceita vírgula
+            Double budget = Double.parseDouble(budgetField.getText().replace(",", "."));
             LocalDate deadline = deadlinePicker.getValue();
 
             if (deadline == null) {
@@ -60,9 +60,7 @@ public class ProjectCreateController {
                     success = service.updateProject(idEditingProject, novoProjeto);
                 }
 
-                if(success){
-                    voltarParaOFeed();
-                }
+                backFeed();
             } catch (Exception e) {
                 msgLabel.setText("Error: "+e.getMessage());
             }
@@ -75,18 +73,20 @@ public class ProjectCreateController {
         }
     }
 
-    private void voltarParaOFeed() {
+    private void backFeed() {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("view/feed.fxml"));
             Parent feed = loader.load();
-            msgLabel.getScene().getRoot().lookup("#contentArea");
-            msgLabel.setText("Projeto Publicado com Sucesso! ✅");
-            msgLabel.setStyle("-fx-text-fill: #81c784;");
-            titleField.clear();
-            descField.clear();
-            budgetField.clear();
+
+            javafx.scene.Node contentArea = msgLabel.getScene().getRoot().lookup("#contentArea");
+
+            if (contentArea instanceof javafx.scene.layout.Pane) {
+                ((javafx.scene.layout.Pane) contentArea).getChildren().setAll(feed);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
+            msgLabel.setText("Erro ao voltar para o Feed: " + e.getMessage());
         }
     }
 

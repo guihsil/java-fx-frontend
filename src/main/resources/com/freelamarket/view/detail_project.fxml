@@ -18,12 +18,15 @@
             <Label fx:id="lblClient" styleClass="detail-client"/>
         </VBox>
 
+        <VBox spacing="5">
+            <Label fx:id="lblBudget" styleClass="detail-budget"/>
+            <Label fx:id="lblDeadLine" text="Sem Prazo" styleClass="deadline"/>
+        </VBox>
+
         <VBox spacing="8">
             <Label text="Descrição Completa:" styleClass="detail-label"/>
             <TextArea fx:id="txtDesc" editable="false" wrapText="true" prefRowCount="6" styleClass="detail-textarea"/>
         </VBox>
-
-        <Label fx:id="lblBudget" styleClass="detail-budget"/>
 
         <VBox fx:id="boxProposta" spacing="15" styleClass="propose-box">
             <Label text="Enviar Proposta para este Projeto" styleClass="detail-label"/>

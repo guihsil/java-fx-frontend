@@ -10,13 +10,10 @@ public class User {
     private String name;
     private String email;
     private String password;
-
     private String profileId;
-
     private String companyName;
     private String cnpjNif;
     private String address;
-
     private String bio;
     private String portfolioUrl;
     private Double hourlyRate;

@@ -111,7 +111,6 @@ public class ProposalService {
     public boolean sendPropose(String projectId, double valor, String mensagem) throws Exception {
         String token = UserSession.getInstance().getToken();
 
-        // Montando o JSON para enviar ao backend
         com.fasterxml.jackson.databind.node.ObjectNode jsonNodes = mapper.createObjectNode();
         jsonNodes.put("proposedValue", valor);
         jsonNodes.put("message", mensagem);
@@ -127,7 +126,6 @@ public class ProposalService {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Status 201 (Created) significa que deu tudo certo!
         if (response.statusCode() == 201) {
             return true;
         } else {

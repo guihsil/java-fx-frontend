@@ -10,11 +10,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
+import java.time.format.DateTimeFormatter;
+
 public class DetailProjectController {
     @FXML private Label lblTitle;
     @FXML private Label lblClient;
     @FXML private TextArea txtDesc;
     @FXML private Label lblBudget;
+    @FXML private Label lblDeadLine;
 
     @FXML private VBox boxProposta;
     @FXML private TextField txtValor;
@@ -29,9 +32,10 @@ public class DetailProjectController {
         this.projeto = p;
         lblTitle.setText(p.getTitle());
         lblClient.setText("Publicado por: @" + (p.getClientName() != null ? p.getClientName() : "Anônimo"));
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        lblDeadLine.setText("Prazo limite: " + (p.getDeadline() != null ? p.getDeadline().format(dtf) : "Sem data definida"));
         txtDesc.setText(p.getDescription());
         lblBudget.setText("Orçamento previsto: R$ " + p.getValue());
-        lblBudget.setStyle("-fx-text-fill: my-primary-text;");
 
         verifyUserType();
     }
@@ -65,16 +69,13 @@ public class DetailProjectController {
 
             if (sucesso) {
                 lblStatus.setText("Proposta enviada com sucesso! 🎉");
-                lblStatus.setStyle("-fx-text-fill: #81c784;");
                 txtValor.setDisable(true);
                 txtMensagem.setDisable(true);
             }
         } catch (NumberFormatException e) {
             lblStatus.setText("Erro: O valor deve ser um número válido!");
-            lblStatus.setStyle("-fx-text-fill: #ef5350;");
         } catch (Exception e) {
             lblStatus.setText("Erro ao enviar: " + e.getMessage());
-            lblStatus.setStyle("-fx-text-fill: #ef5350;");
         }
     }
 }

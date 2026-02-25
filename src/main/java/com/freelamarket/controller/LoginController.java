@@ -6,26 +6,18 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.kordamp.bootstrapfx.BootstrapFX;
 
 import java.io.IOException;
 
 public class LoginController {
 
-    @FXML
-    private TextField emailField;
-
-    @FXML
-    private PasswordField passwordField;
-
-    @FXML
-    private Label errorLabel;
-
+    @FXML private TextField emailField;
+    @FXML private PasswordField passwordField;
+    @FXML private Label errorLabel;
     private final AuthService authService = new AuthService();
 
     @FXML
@@ -46,7 +38,7 @@ public class LoginController {
         };
 
         loginTask.setOnSucceeded(e -> {
-            abrirHome();
+            enterHome();
         });
 
         loginTask.setOnFailed(e -> {
@@ -73,14 +65,14 @@ public class LoginController {
         }
     }
 
-    private void abrirHome() {
+    private void enterHome() {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("view/home.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) emailField.getScene().getWindow();
             stage.getScene().setRoot(root);
             stage.setMaximized(true);
-            stage.setTitle("FreelaMarket - Home");
+            stage.setTitle("FreelaMarket");
         } catch (IOException e) {
             e.printStackTrace();
             errorLabel.setText("Erro ao carregar Home: "+e.getMessage());

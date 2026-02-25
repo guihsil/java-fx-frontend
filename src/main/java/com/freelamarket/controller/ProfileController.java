@@ -14,16 +14,13 @@ public class ProfileController {
     @FXML private TextField emailField;
     @FXML private TextField phoneField;
     @FXML private Label msgLabel;
-
     @FXML private VBox clientBox;
     @FXML private VBox providerBox;
-
     // Client
     @FXML private TextField companyNameField;
     @FXML private TextField cnpjField;
     @FXML private TextField addressField;
     @FXML private TextArea bioClientField;
-
     // Provider
     @FXML private TextArea bioProviderField;
     @FXML private TextField portfolioField;
@@ -59,10 +56,6 @@ public class ProfileController {
                 addressField.setText(clearNull(currentUser.getAddress()));
                 bioClientField.setText(clearNull(currentUser.getBio()));
 
-                companyNameField.setText(currentUser.getCompanyName());
-                cnpjField.setText(currentUser.getCnpjNif());
-                addressField.setText(currentUser.getAddress());
-                bioClientField.setText(currentUser.getBio());
             } else {
                 providerBox.setVisible(true);
                 providerBox.setManaged(true);
@@ -71,10 +64,7 @@ public class ProfileController {
                 portfolioField.setText(clearNull(currentUser.getPortfolioUrl()));
                 skillsField.setText(clearNull(currentUser.getSkills()));
 
-                bioProviderField.setText(currentUser.getBio());
-                portfolioField.setText(currentUser.getPortfolioUrl());
-                skillsField.setText(currentUser.getSkills());
-                hourlyRateField.setText(String.valueOf(currentUser.getHourlyRate()));
+                hourlyRateField.setText(currentUser.getHourlyRate() != null ? String.valueOf(currentUser.getHourlyRate()) : "");
             }
         } catch (Exception e) {
             msgLabel.setText("Erro ao carregar perfil: " + e.getMessage());
