@@ -13,9 +13,8 @@
       styleClass="my-projects-sect">
 
     <Label fx:id="lblPrincipalTitle" text="Meus Projetos"/>
-    <Label fx:id="lblSubTitle" text="Gerencie suas vagas publicadas"/>
 
-    <ScrollPane fitToWidth="true" styleClass="my-projects-scroll-pane">
+    <ScrollPane fitToWidth="true" styleClass="myprojects-scroll-pane">
         <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="my-projects-container"/>
     </ScrollPane>
 </VBox>

@@ -41,7 +41,7 @@ public class FeedController {
 
             if (proposals == null || proposals.isEmpty()) {
                 Label emptyLabel = new Label("Nenhuma Proposta Encontrada");
-                emptyLabel.getStyleClass().addAll("not-found-projects");
+                emptyLabel.getStyleClass().add("not-found-projects");
                 cardContainer.getChildren().add(emptyLabel);
             } else {
                 for (Proposal p: proposals){

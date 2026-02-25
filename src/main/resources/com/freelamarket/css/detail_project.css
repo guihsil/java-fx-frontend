@@ -1,10 +1,10 @@
 .root {
-    -fx-background-color: #0D1A14;
+    -fx-background-color: #F8FAFC;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 .detail-container {
-    -fx-background-color: #0D1A14;
+    -fx-background-color: #FFFFFF;
     -fx-padding: 40 30 30 30;
     -fx-min-width: 800px;
     -fx-min-height: 600px;
@@ -13,69 +13,82 @@
 .detail-title {
     -fx-font-size: 32px;
     -fx-font-weight: bold;
-    -fx-text-fill: #E0EADD;
-    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 0, 2, 0, 1);
+    -fx-text-fill: #2563EB;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.05), 0, 2, 0, 1);
 }
 
 .detail-budget {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-text-fill: #3D8B5D;
+    -fx-text-fill: #1E40AF;
 }
 
 .detail-client {
     -fx-font-size: 14px;
-    -fx-text-fill: #8A9B91;
+    -fx-text-fill: #64748B;
 }
 
 .detail-label {
     -fx-font-weight: bold;
-    -fx-text-fill: #E0EADD;
+    -fx-text-fill: #1E293B;
     -fx-font-size: 16px;
 }
 
 .deadline {
     -fx-font-size: 14px;
-    -fx-text-fill: #8A9B91;
+    -fx-text-fill: #94A3B8;
     -fx-font-style: italic;
 }
 
 .propose-box {
-    -fx-background-color: #162A21;
+    -fx-background-color: #FFFFFF;
     -fx-padding: 30;
     -fx-background-radius: 12px;
-    -fx-border-color: rgba(61, 139, 93, 0.3);
+    -fx-border-color: #E2E8F0;
     -fx-border-radius: 12px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 15, 0, 0, 4);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0, 0, 4);
 }
 
 .detail-input {
-    -fx-background-color: #1C3329;
-    -fx-text-fill: #E0EADD;
+    /* Input com fundo cinza muito claro */
+    -fx-background-color: #F8FAFC;
+    -fx-text-fill: #1E293B;
+    -fx-border-color: #CBD5E1;
     -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-padding: 10px;
 }
 
+.detail-input:focused {
+    -fx-border-color: #2563EB;
+    -fx-border-width: 2px;
+    -fx-background-color: #FFFFFF;
+}
+
 .detail-textarea {
-    -fx-background-color: #1C3329;
-    -fx-control-inner-background: #1C3329;
+    -fx-background-color: #F8FAFC;
+    -fx-control-inner-background: #F8FAFC;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-prompt-text-fill: #8A9B91;
-    -fx-text-fill: #E0EADD;
+    -fx-border-color: #CBD5E1;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-text-fill: #1E293B;
     -fx-min-height: 250px;
 }
 
+.detail-textarea:focused {
+    -fx-border-color: #2563EB;
+    -fx-border-width: 2px;
+    -fx-control-inner-background: #FFFFFF;
+}
+
 .detail-textarea:readonly {
-    -fx-background-color: #1C3329;
-    -fx-control-inner-background: #1C3329;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-text-fill: #E0EADD;
+    -fx-background-color: #F1F5F9;
+    -fx-control-inner-background: #F1F5F9;
+    -fx-border-color: #E2E8F0;
+    -fx-text-fill: #475569;
     -fx-opacity: 1.0;
-    -fx-cursor: default;
-    -fx-faint-focus-color: transparent;
-    -fx-focus-color: transparent;
 }
 
 .detail-textarea .scroll-pane,
@@ -83,19 +96,31 @@
 .detail-textarea .scroll-pane .content { -fx-background-color: transparent; }
 
 .btn-success {
-    -fx-font-family: "Poppins", "JetBrains";
-    -fx-background-color: #3D8B5D;
-    -fx-text-fill: #E0EADD;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #2563EB;
+    -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
-    -fx-padding: 10 20;
+    -fx-padding: 10 25;
     -fx-cursor: hand;
-    -fx-background-radius: 5px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #2563EB;
 }
 
-.btn-success:hover { -fx-background-color: #2E6148;}
+.btn-success:hover {
+    -fx-background-color: #1D4ED8;
+    -fx-border-color: #1D4ED8;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.3), 8, 0, 0, 2);
+}
 
-.msg-status { -fx-font-weight: bold; }
+.btn-success:pressed {
+    -fx-background-color: #1E40AF;
+    -fx-border-color: #1E40AF;
+    -fx-translate-y: 1px;
+}
 
-.status-sending { -fx-text-fill: #aaaaaa; }
-.status-success { -fx-text-fill: #81c784; }
-.status-error   { -fx-text-fill: #ef5350; }
+.msg-status { -fx-font-weight: bold; -fx-font-size: 14px; }
+
+.status-sending { -fx-text-fill: #64748B; }
+.status-success { -fx-text-fill: #10B981; }
+.status-error   { -fx-text-fill: #EF4444; }

@@ -50,9 +50,7 @@ public class MyProjectsController {
 
     private void loadClientProjects() {
         lblPrincipalTitle.setText("Meus Projetos");
-        lblPrincipalTitle.getStyleClass().add("my-projects-title");
-        lblSubTitle.setText("Gerencie suas propostas.");
-        lblSubTitle.getStyleClass().add("my-projects-subtitle");
+        lblPrincipalTitle.getStyleClass().add("myprojects-principal-title");
 
         String myEmail = UserSession.getInstance().getEmail();
 
@@ -72,7 +70,7 @@ public class MyProjectsController {
 
             if(mine.isEmpty()) {
                 Label lbl = new Label("Você não criou nenhum projeto.");
-                lbl.setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
+                lbl.getStyleClass().add("myprojects-subtitle");
                 cardContainer.getChildren().add(lbl);
             } else {
                 for(Proposal p: mine) {
@@ -93,9 +91,7 @@ public class MyProjectsController {
 
     private void loadProviderProposals() {
         lblPrincipalTitle.setText("Minhas Propostas");
-        lblPrincipalTitle.getStyleClass().add("my-projects-title");
-        lblSubTitle.setText("Gerencie seus projetos.");
-        lblSubTitle.getStyleClass().add("my-projects-subtitle");
+        lblPrincipalTitle.getStyleClass().add("myprojects-title");
 
         Task<List<Negotiation>> task = new Task<>() {
             @Override
@@ -132,10 +128,10 @@ public class MyProjectsController {
         VBox card = new VBox(10);
         card.setPadding(new Insets(15));
         card.setPrefWidth(220);
-        card.getStyleClass().add("myprojects-create-card");
+        card.getStyleClass().add("myprojects-card");
 
         Label title = new Label("Vaga: " + n.getProjectTitle());
-        title.getStyleClass().add("myprojects-title");
+        title.getStyleClass().add("myprojects-title-card");
 
         Label charged = new Label("💰 Seu lance: R$ " + n.getProposedValue());
         charged.getStyleClass().add("myprojects-charged");
@@ -156,8 +152,6 @@ public class MyProjectsController {
 
     private VBox createCardAdmin(Proposal p) {
         VBox card = new VBox(10);
-        card.setPadding(new Insets((15)));
-        card.setPrefWidth(200);
         card.getStyleClass().add("myprojects-cards");
 
         Label title = new Label(p.getTitle());
@@ -167,7 +161,6 @@ public class MyProjectsController {
         status.getStyleClass().add("myprojects-status");
 
         HBox actions = new HBox(10);
-
         Button btnVerPropostas = new Button("Ver");
         btnVerPropostas.getStyleClass().add("btn-open");
         btnVerPropostas.setOnAction(e -> openProposes(p));

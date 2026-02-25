@@ -14,7 +14,7 @@
       styleClass="create-container"
       stylesheets="@../css/project_create.css">
 
-    <VBox spacing="20" maxWidth="700">
+    <VBox spacing="20" maxWidth="700" styleClass="create-principal-container">
         <Label text="Novo Projeto" styleClass="titulo-h1"/>
 
         <padding>

@@ -15,7 +15,7 @@
     <left>
         <VBox spacing="15" styleClass="home-sidebar">
             <padding>
-                <Insets top="30" right="20" bottom="20" left="20"/>
+                <Insets top="30" right="20" bottom="20" left="15"/>
             </padding>
 
             <Label text="FreelaMarket" styleClass="home-titulo-h2" />

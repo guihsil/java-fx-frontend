@@ -1,58 +1,73 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
+    my-background-color: #F4F6F8;
+    my-cards-color: #FFFFFF;
+    my-inputs-background: #FFFFFF;
+    my-buttons: #2196F3;
+    my-primary-text: #2C3E50;
+    my-secondary-text: #7F8C8D;
+    my-selected-button: #1976D2;
 
     -fx-background-color: my-background-color;
 }
 
 .login-info {
     -fx-background-color: my-cards-color;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
     -fx-background-radius: 20px;
+    -fx-border-color: my-buttons;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+    -fx-padding: 30px;
 }
 
 .login-h1 {
-    -fx-text-fill: my-primary-text;
+    -fx-text-fill: my-buttons;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
 }
 
 .login-h5 {
     -fx-text-fill: my-secondary-text;
+    -fx-alignment: center;
 }
 
 .login-form-control {
     -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-padding: 10px;
-    -fx-border-color: transparent;
-    -fx-background-color: my-forms-background-color;
-    -fx-text-fill: my-secondary-text;
+    -fx-border-color: my-buttons;
+    -fx-border-width: 1px;
+    -fx-background-color: my-inputs-background;
+    -fx-text-fill: my-primary-text;
+}
+
+.login-form-control:focused {
+    -fx-border-width: 2px;
+    -fx-border-color: my-selected-button;
 }
 
 .login-btn {
-    -fx-background-color: my-buttons;
-    -fx-text-fill: my-primary-text;
+    -fx-background-color: #2563EB;
+    -fx-text-fill: #FFFFFF;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     -fx-font-weight: bold;
     -fx-padding: 10 25 10 25;
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
 }
 
 .login-btn:hover {
-    -fx-background-color: my-selected-button;
+    -fx-background-color: #1E293B;
     -fx-border-color: transparent;
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: #FFFFFF;
 }
 
 .login-hyperlink {
     -fx-border-color: transparent;
     -fx-font-weight: bold;
     -fx-text-fill: my-buttons;
-}
-
-.login-hyperlink:hover {
-    -fx-underline: false;
+    -fx-alignment: center;
 }

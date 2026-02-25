@@ -20,8 +20,6 @@
     <Label text="Projetos Recentes" styleClass="titulo-h1"/>
 
     <ScrollPane fitToWidth="true" styleClass="scroll-pane">
-        <content>
-            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="container"/>
-        </content>
+        <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="card-container"/>
     </ScrollPane>
 </VBox>

@@ -1,36 +1,29 @@
 .root {
-    color-bg-main: #F8FAFC;
-    color-primary: #2563EB;
-    color-text-title: #1E293B;
-    color-text-subtitle: #64748B;
-    color-scroll-thumb: #CBD5E1;
-    color-scroll-hover: #2563EB;
+    -fx-background-color: #FFFFFF;
 }
 
 .my-projects-sect {
-    -fx-background-color: #F8FAFC;
     -fx-padding: 15;
 }
 
-.my-projects-title {
-    -fx-font-size: 28px;
+.myprojects-title {
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #1E293B;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 0, 0, 1);
 }
 
-.my-projects-subtitle {
+.myprojects-subtitle {
     -fx-font-size: 15px;
     -fx-text-fill: #64748B;
     -fx-padding: 5 0 20 0;
 }
 
-.my-projects-scroll-pane {
+.myprojects-scroll-pane {
     -fx-background-color: transparent;
-    -fx-padding: 0;
 }
 
-.my-projects-scroll-pane > .viewport {
+.myprojects-scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
 
@@ -39,12 +32,8 @@
 }
 
 .scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
-    -fx-background-color: my-forms-background-color;
+    -fx-background-color: transparent;
     -fx-background-radius: 5;
-}
-
-.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
-    -fx-background-color: #CBD5E1;
 }
 
 .scroll-bar:vertical .track, .scroll-bar:horizontal .track {
@@ -53,40 +42,30 @@
 }
 
 .my-projects-container {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 8px;
-    -fx-border-color: #E2E8F0;
-    -fx-border-radius: 8px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
-    -fx-cursor: hand;
-
-    -fx-min-height: 100px;
-    -fx-min-width: 250px;
-    -fx-max-width: 250px;
+    -fx-background-color: transparent;
 }
 
 .myprojects-cards {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: white;
     -fx-background-radius: 8px;
     -fx-border-color: #E2E8F0;
     -fx-border-radius: 8px;
-    -fx-padding: 15px;
+    -fx-padding: 16px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
     -fx-cursor: hand;
 
-    -fx-min-height: 120px;
-    -fx-max-height: 120px;
-    -fx-min-width: 250px;
-    -fx-max-width: 250px;
+    -fx-min-height: 130px;
+    -fx-pref-height: 130px;
+    -fx-min-width: 365px;
+    -fx-pref-width: 365px;
 }
 
 .myprojects-cards:hover {
     -fx-border-color: #2563EB;
-    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.15), 10, 0, 0, 4);
 }
 
-.myprojects-title {
-    -fx-font-size: 16;
+.myprojects-principal-title {
+    -fx-font-size: 24;
     -fx-font-weight: bold;
     -fx-text-fill: #1E293B;
 }
@@ -127,9 +106,9 @@
 
 .btn-open, .btn-edit, .btn-delete {
     -fx-background-color: #2563EB;
-    -fx-pref-width: 90;
-    -fx-pref-height: 35;
-    -fx-font-size: 13;
+    -fx-font-size: 16;
+    -fx-min-width: 100;
+    -fx-min-height: 35;
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-cursor: hand;
@@ -139,4 +118,8 @@
 
 .btn-open:hover, .btn-edit:hover, .btn-delete:hover {
     -fx-background-color: #1E293B;
+}
+
+.myprojects-title-card {
+    -fx-font-size: 16;
 }

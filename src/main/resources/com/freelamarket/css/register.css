@@ -1,91 +1,135 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
+    my-background-color: #F4F6F8;
+    my-cards-color: #FFFFFF;
+    my-inputs-background: #FFFFFF;
+    my-buttons: #2196F3;
+    my-primary-text: #2C3E50;
+    my-secondary-text: #7F8C8D;
+    my-selected-button: #1976D2;
 
     -fx-background-color: my-background-color;
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
 .reg-info {
     -fx-background-color: my-cards-color;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
     -fx-background-radius: 20px;
+    -fx-border-color: my-buttons;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+    -fx-padding: 30px;
 }
 
 .reg-h3 {
     -fx-font-family: "Poppins Black";
-    -fx-text-fill: my-primary-text;
+    -fx-font-size: 24px;
+    -fx-text-fill: my-buttons;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
 }
 
 .reg-h5 {
     -fx-text-fill: my-secondary-text;
+    -fx-alignment: center;
 }
 
 .reg-form-control {
+    -fx-background-color: my-inputs-background;
+    -fx-border-color: my-buttons;
+    -fx-border-width: 1px;
     -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-padding: 10px;
-    -fx-border-color: transparent;
-    -fx-background-color: my-forms-background-color;
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: my-primary-text;
+}
+
+.reg-form-control:focused {
+    -fx-border-width: 2px;
+    -fx-border-color: my-selected-button;
 }
 
 .reg-combobox {
+    -fx-background-color: my-inputs-background;
+    -fx-border-color: my-buttons;
+    -fx-border-width: 1px;
     -fx-border-radius: 5px;
-    -fx-padding: 10px;
-    -fx-border-color: transparent;
-    -fx-background-color: my-forms-background-color;
-    -fx-prompt-text-fill: my-secondary-text;
+    -fx-background-radius: 5px;
+    -fx-padding: 2px;
 }
 
 .reg-combobox .list-cell {
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: my-primary-text;
+    -fx-background-color: transparent;
 }
 
 .reg-combobox .arrow {
-    -fx-background-color: my-background-color;
+    -fx-background-color: my-buttons;
 }
-
-.reg-combobox .text-input {
-    -fx-prompt-text-fill: my-secondary-text;
+.reg-combobox .arrow-button {
+    -fx-background-color: transparent;
 }
 
 .combo-box-popup .list-view {
     -fx-background-color: my-cards-color;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0.0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0.0, 0, 0);
+    -fx-border-color: my-buttons;
+    -fx-border-width: 1px;
 }
 
 .combo-box-popup .list-cell {
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: my-primary-text;
     -fx-padding: 10px;
     -fx-background-color: transparent;
 }
 
+.combo-box-popup .list-cell:filled:hover,
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: my-buttons;
+    -fx-text-fill: white;
+}
+
 .reg-btn {
     -fx-font-family: "JetBrains";
-    -fx-background-color: my-buttons;
-    -fx-text-fill: my-primary-text;
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     -fx-font-weight: bold;
     -fx-padding: 10 25 10 25;
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
 }
 
 .reg-btn:hover {
-    -fx-background-color: my-selected-button;
+    -fx-background-color: #1E293B;
     -fx-border-color: transparent;
-    -fx-text-fill: my-secondary-text;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+.reg-back-link {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: my-buttons;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-padding: 5 10 5 10;
+}
+
+.reg-back-link:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: my-selected-button;
+    -fx-underline: true;
 }
 
 .reg-hyperlink {
     -fx-border-color: transparent;
     -fx-font-weight: bold;
     -fx-text-fill: my-buttons;
-}
-
-.reg-hyperlink:hover {
     -fx-underline: false;
+}
+.reg-hyperlink:hover {
+    -fx-text-fill: my-selected-button;
+    -fx-underline: true;
 }

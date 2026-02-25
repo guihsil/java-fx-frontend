@@ -21,7 +21,7 @@
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
         </padding>
 
-        <Label text="Bem-vindo!" styleClass="login-h1"/>
+        <Label text="FreelaMarket!" styleClass="login-h1"/>
         <Label text="Acesse sua conta." styleClass="text-muted"/>
 
         <Label text="E-mail" styleClass="login-h5"/>
