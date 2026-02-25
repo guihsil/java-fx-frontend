@@ -34,6 +34,7 @@ public class HomeController {
             if ("CLIENT".equalsIgnoreCase(user.getUserType())) {
                 btnPublicar.setVisible(true);
                 btnPublicar.setManaged(true);
+                btnMeusProjetos.setText("📂 Meus Projetos");
             } else if ("PROVIDER".equalsIgnoreCase(user.getUserType())){
                 btnMeusProjetos.setText("📂 Minhas Propostas");
             }

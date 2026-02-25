@@ -30,6 +30,8 @@ import java.util.stream.Collectors;
 public class MyProjectsController {
 
     @FXML private FlowPane cardContainer;
+    @FXML private Label lblPrincipalTitle;
+    @FXML private Label lblSubTitle;
     private final ProposalService service = new ProposalService();
 
     @FXML
@@ -47,6 +49,11 @@ public class MyProjectsController {
     }
 
     private void loadClientProjects() {
+        lblPrincipalTitle.setText("Meus Projetos");
+        lblPrincipalTitle.getStyleClass().add("my-projects-title");
+        lblSubTitle.setText("Gerencie suas propostas.");
+        lblSubTitle.getStyleClass().add("my-projects-subtitle");
+
         String myEmail = UserSession.getInstance().getEmail();
 
         Task<List<Proposal>> task = new Task<>() {
@@ -85,6 +92,11 @@ public class MyProjectsController {
     }
 
     private void loadProviderProposals() {
+        lblPrincipalTitle.setText("Minhas Propostas");
+        lblPrincipalTitle.getStyleClass().add("my-projects-title");
+        lblSubTitle.setText("Gerencie seus projetos.");
+        lblSubTitle.getStyleClass().add("my-projects-subtitle");
+
         Task<List<Negotiation>> task = new Task<>() {
             @Override
             protected List<Negotiation> call() throws Exception {
@@ -120,29 +132,22 @@ public class MyProjectsController {
         VBox card = new VBox(10);
         card.setPadding(new Insets(15));
         card.setPrefWidth(220);
-        card.setStyle("-fx-background-color: #2b2b2b; " +
-                "-fx-background-radius: 8; " +
-                "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+        card.getStyleClass().add("myprojects-create-card");
 
         Label title = new Label("Vaga: " + n.getProjectTitle());
-        title.setStyle("-fx-text-fill: #64b5f6; " +
-                "-fx-font-weight: bold; " +
-                "-fx-font-size: 14px;");
+        title.getStyleClass().add("myprojects-title");
 
         Label charged = new Label("💰 Seu lance: R$ " + n.getProposedValue());
-        charged.setStyle("-fx-text-fill: white;");
+        charged.getStyleClass().add("myprojects-charged");
 
         Label status = new Label("Status: " + n.getStatus());
 
         if("ACCEPTED".equalsIgnoreCase(n.getStatus())) {
-            status.setStyle("-fx-text-fill: #81c784; " +
-                    "-fx-font-weight: bold;");
+            status.getStyleClass().add("myprojects-accepted");
         } else if ("REJECTED".equalsIgnoreCase(n.getStatus())) {
-            status.setStyle("-fx-text-fill: #ef5350; " +
-                    "-fx-font-weight: bold;");
+            status.getStyleClass().add("myprojects-rejected");
         } else {
-            status.setStyle("-fx-text-fill: #ffb74d; " +
-                    "-fx-font-style: italic;");
+            status.getStyleClass().add("myprojects-unkn");
         }
 
         card.getChildren().addAll(title, charged, status);
@@ -153,31 +158,26 @@ public class MyProjectsController {
         VBox card = new VBox(10);
         card.setPadding(new Insets((15)));
         card.setPrefWidth(200);
-        card.setStyle("-fx-background-color: #2b2b2b; " +
-                "-fx-background-radius: 8; " +
-                "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+        card.getStyleClass().add("myprojects-cards");
 
         Label title = new Label(p.getTitle());
-        title.setStyle("-fx-text-fill: #81c784; " +
-                "-fx-font-weight: bold; " +
-                "-fx-font-size: 14px;");
+        title.getStyleClass().add("myprojects-title");
 
         Label status = new Label("Status: " + p.getStatus());
-        status.setStyle("-fx-text-fill: #aaaaaa; " +
-                "-fx-font-size: 12px;");
+        status.getStyleClass().add("myprojects-status");
 
         HBox actions = new HBox(10);
 
         Button btnVerPropostas = new Button("Ver");
-        btnVerPropostas.getStyleClass().addAll("btn", "btn-sm", "btn-info");
+        btnVerPropostas.getStyleClass().add("btn-open");
         btnVerPropostas.setOnAction(e -> openProposes(p));
 
         Button btnEdit = new Button("Editar");
-        btnEdit.getStyleClass().addAll("btn", "btn-sm", "btn-warning");
+        btnEdit.getStyleClass().addAll("btn-edit");
         btnEdit.setOnAction(e -> handleEdit(p));
 
         Button btnDelete = new Button("Excluir");
-        btnDelete.getStyleClass().addAll("btn", "btn-sm", "btn-danger");
+        btnDelete.getStyleClass().addAll("btn-delete");
         btnDelete.setOnAction(e -> handleDelete(p));
 
         actions.getChildren().addAll(btnVerPropostas, btnEdit, btnDelete);

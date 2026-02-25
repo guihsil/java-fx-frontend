@@ -10,14 +10,12 @@
       fx:controller="com.freelamarket.controller.MyProjectsController"
       spacing="20"
       stylesheets="@../css/my_projects.css"
-      styleClass="my-projects-container">
+      styleClass="my-projects-sect">
 
-    <Label text="Meus Projetos" styleClass="my-projects-th1"/>
-    <Label text="Gerencie suas vagas publicadas." styleClass="my-projects-subtitle"/>
+    <Label fx:id="lblPrincipalTitle" text="Meus Projetos"/>
+    <Label fx:id="lblSubTitle" text="Gerencie suas vagas publicadas"/>
 
     <ScrollPane fitToWidth="true" styleClass="my-projects-scroll-pane">
-        <content>
-            <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="my-projects-container"/>
-        </content>
+        <FlowPane fx:id="cardContainer" hgap="20" vgap="20" styleClass="my-projects-container"/>
     </ScrollPane>
 </VBox>

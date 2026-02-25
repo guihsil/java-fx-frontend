@@ -1,33 +1,31 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
-
-    -fx-background-color: my-background-color;
+    color-bg-main: #F8FAFC;
+    color-primary: #2563EB;
+    color-text-title: #1E293B;
+    color-text-subtitle: #64748B;
+    color-scroll-thumb: #CBD5E1;
+    color-scroll-hover: #2563EB;
 }
 
-.my-projects-container {
-    -fx-background-color: transparent;
-    -fx-padding: 20;
+.my-projects-sect {
+    -fx-background-color: #F8FAFC;
+    -fx-padding: 15;
 }
 
-.my-projects-th1 {
+.my-projects-title {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: my-primary-text;
+    -fx-text-fill: #1E293B;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 0, 0, 1);
 }
 
 .my-projects-subtitle {
-    -fx-font-size: 14px;
-    -fx-text-fill: my-secondary-text;
+    -fx-font-size: 15px;
+    -fx-text-fill: #64748B;
+    -fx-padding: 5 0 20 0;
 }
 
 .my-projects-scroll-pane {
-    -fx-background: transparent;
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
@@ -39,14 +37,106 @@
 .scroll-bar:vertical, .scroll-bar:horizontal {
     -fx-background-color: transparent;
 }
+
 .scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
     -fx-background-color: my-forms-background-color;
-    -fx-background-radius: 5px;
+    -fx-background-radius: 5;
 }
+
 .scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
-    -fx-background-color: my-buttons;
+    -fx-background-color: #CBD5E1;
 }
+
 .scroll-bar:vertical .track, .scroll-bar:horizontal .track {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+}
+
+.my-projects-container {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+    -fx-cursor: hand;
+
+    -fx-min-height: 100px;
+    -fx-min-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.myprojects-cards {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+    -fx-cursor: hand;
+
+    -fx-min-height: 120px;
+    -fx-max-height: 120px;
+    -fx-min-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.myprojects-cards:hover {
+    -fx-border-color: #2563EB;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.15), 10, 0, 0, 4);
+}
+
+.myprojects-title {
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+}
+
+.myprojects-status {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748B;
+}
+
+.myprojects-charged {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748B;
+}
+
+.myprojects-accepted, .myprojects-rejected, .myprojects-unkn {
+    -fx-padding: 4 10;
+    -fx-background-radius: 15;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+.myprojects-accepted {
+    -fx-background-color: #D1FAE5;
+    -fx-text-fill: #065F46;
+}
+
+.myprojects-rejected {
+    -fx-background-color: #FEE2E2;
+    -fx-text-fill: #991B1B;
+}
+
+.myprojects-unkn {
+    -fx-background-color: #FEF3C7;
+    -fx-text-fill: #92400E;
+}
+
+.btn-open, .btn-edit, .btn-delete {
+    -fx-background-color: #2563EB;
+    -fx-pref-width: 90;
+    -fx-pref-height: 35;
+    -fx-font-size: 13;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 6;
+    -fx-alignment: center;
+}
+
+.btn-open:hover, .btn-edit:hover, .btn-delete:hover {
+    -fx-background-color: #1E293B;
 }
