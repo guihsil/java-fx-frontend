@@ -1,91 +1,130 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
-
-    -fx-background-color: my-background-color;
+    -fx-background-color: #F8FAFC;
+    -fx-font-family: "Segoe UI", "Open Sans", sans-serif;
 }
 
 .container {
     -fx-background-color: transparent;
-    -fx-padding: 100 30 30 30;
+    -fx-padding: 50 30 30 30;
 }
 
 .titulo-h1 {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: my-primary-text;
+    -fx-text-fill: #1E293B;
 }
 
 .form-label {
-    -fx-text-fill: my-secondary-text;
+    -fx-text-fill: #1E293B;
     -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 5 0;
 }
 
 .msg-error {
-    -fx-text-fill: #ef5350;
+    -fx-text-fill: #EF4444;
     -fx-font-weight: bold;
+    -fx-font-size: 12px;
 }
 
 .form-input {
-    -fx-background-color: my-forms-background-color;
-    -fx-text-fill: my-primary-text;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1E293B;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-border-color: #CBD5E1;
     -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-padding: 10px;
 }
 
+.form-input:focused {
+    -fx-border-color: #2563EB;
+    -fx-border-width: 2px;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.1), 5, 0, 0, 0);
+}
+
 .form-textarea {
-    -fx-background-color: my-forms-background-color;
-    -fx-control-inner-background: my-forms-background-color;
-    -fx-background-radius: 5px;
+    -fx-background-color: #FFFFFF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-text-fill: #1E293B;
+    -fx-prompt-text-fill: #94A3B8;
+
+    -fx-border-color: #CBD5E1;
     -fx-border-radius: 5px;
-    -fx-prompt-text-fill: my-secondary-text;
-    -fx-text-fill: my-primary-text;
+    -fx-background-radius: 5px;
+}
+
+.form-textarea:focused {
+    -fx-border-color: #2563EB;
+    -fx-border-width: 2px;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.1), 5, 0, 0, 0);
 }
 
 .form-textarea .scroll-pane {
     -fx-background-color: transparent;
 }
-
 .form-textarea .scroll-pane .viewport {
     -fx-background-color: transparent;
 }
-
 .form-textarea .scroll-pane .content {
     -fx-background-color: transparent;
 }
 
-.form-datepicker {
-    -fx-background-color: my-forms-background-color;
-    -fx-border-radius: 5px;
-}
-.form-datepicker .text-field {
-    -fx-background-color: transparent;
-    -fx-text-fill: my-primary-text;
-    -fx-padding: 10px;
-}
-.form-datepicker .arrow-button {
-    -fx-background-color: transparent;
-}
-.form-datepicker .arrow-button .arrow {
-    -fx-background-color: my-secondary-text;
-}
 
-.btn-publish {
-    -fx-background-color: my-buttons;
-    -fx-text-fill: my-primary-text;
-    -fx-font-family: "Poppins", "JetBrains";
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 12 25;
-    -fx-cursor: hand;
+.form-datepicker {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 
+.form-datepicker:focused {
+    -fx-border-color: #2563EB;
+    -fx-border-width: 2px;
+}
+
+.form-datepicker > .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1E293B;
+    -fx-padding: 10px;
+}
+
+.form-datepicker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.form-datepicker .arrow-button .arrow {
+    -fx-background-color: #475569;
+}
+
+.btn-publish {
+    -fx-background-color: #2563EB;
+    -fx-text-fill: #FFFFFF;
+
+    -fx-font-family: "Segoe UI", "Open Sans", sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 25;
+    -fx-cursor: hand;
+
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #2563EB;
+    -fx-border-width: 1px;
+}
+
 .btn-publish:hover {
-    -fx-background-color: my-selected-button;
+    -fx-background-color: #1D4ED8;
+    -fx-border-color: #1D4ED8;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.3), 8, 0, 0, 2);
+}
+
+.btn-publish:pressed {
+    -fx-background-color: #1E40AF;
+    -fx-border-color: #1E40AF;
+    -fx-effect: none;
+    -fx-translate-y: 1px;
 }

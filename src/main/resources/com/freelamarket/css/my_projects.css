@@ -1,29 +1,24 @@
 .root {
-    my-background-color: #0D1A14;
-    my-cards-color: #162A21;
-    my-buttons: #3D8B5D;
-    my-primary-text: #E0EADD;
-    my-secondary-text: #8A9B91;
-    my-forms-background-color: #1C3329;
-    my-selected-button: #2E6148;
-
-    -fx-background-color: my-background-color;
+    -fx-background-color: #F8FAFC;
+    -fx-font-family: "Segoe UI", "Open Sans", sans-serif;
 }
 
 .my-projects-container {
     -fx-background-color: transparent;
-    -fx-padding: 20;
+    -fx-padding: 30;
 }
 
 .my-projects-th1 {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: my-primary-text;
+    -fx-text-fill: #1E293B;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 0, 0, 1);
 }
 
 .my-projects-subtitle {
-    -fx-font-size: 14px;
-    -fx-text-fill: my-secondary-text;
+    -fx-font-size: 15px;
+    -fx-text-fill: #64748B;
+    -fx-padding: 5 0 20 0;
 }
 
 .my-projects-scroll-pane {
@@ -39,14 +34,33 @@
 .scroll-bar:vertical, .scroll-bar:horizontal {
     -fx-background-color: transparent;
 }
+
 .scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
-    -fx-background-color: my-forms-background-color;
-    -fx-background-radius: 5px;
+    -fx-background-color: #CBD5E1;
+    -fx-background-radius: 4px;
+    -fx-background-insets: 2;
 }
+
 .scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
-    -fx-background-color: my-buttons;
+    -fx-background-color: #2563EB;
 }
+
 .scroll-bar:vertical .track, .scroll-bar:horizontal .track {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+}
+
+.project-card-item {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.project-card-item:hover {
+    -fx-border-color: #2563EB;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.15), 10, 0, 0, 4);
 }
