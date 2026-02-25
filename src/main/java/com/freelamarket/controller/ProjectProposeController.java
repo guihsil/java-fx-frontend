@@ -108,7 +108,7 @@ public class ProjectProposeController {
                 alert.setContentText(aceitar ? "Proposta ACEITA com sucesso! 🎉" : "Proposta recusada.");
                 alert.showAndWait();
 
-                loadProposes(); // Recarrega para sumir com os botões!
+                loadProposes();
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
